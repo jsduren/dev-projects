@@ -28,30 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.listBox4 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lblItemStatus = new System.Windows.Forms.Label();
+            this.lblItemDueDate = new System.Windows.Forms.Label();
+            this.lblItemCheckoutLength = new System.Windows.Forms.Label();
+            this.lblItemType = new System.Windows.Forms.Label();
+            this.lblItemTitle = new System.Windows.Forms.Label();
+            this.lblPatronItemsCheckedOut = new System.Windows.Forms.Label();
+            this.lblPatronType = new System.Windows.Forms.Label();
+            this.lblPatronName = new System.Windows.Forms.Label();
+            this.btnCheckIn = new System.Windows.Forms.Button();
+            this.btnCheckOut = new System.Windows.Forms.Button();
+            this.lstItemsOverdue = new System.Windows.Forms.ListBox();
+            this.lstItemsLibrary = new System.Windows.Forms.ListBox();
+            this.lstPatrons = new System.Windows.Forms.ListBox();
             this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listBox3 = new System.Windows.Forms.ListBox();
+            this.lstItemsCheckedOut = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblListOfPatrons = new System.Windows.Forms.Label();
+            this.lblListOfItems = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lblListOfCurrentlyCheckedOut = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -63,119 +63,129 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label8
+            // lblItemStatus
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1, 205);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 13);
-            this.label8.TabIndex = 29;
-            this.label8.Text = "Status";
+            this.lblItemStatus.AutoSize = true;
+            this.lblItemStatus.Location = new System.Drawing.Point(77, 195);
+            this.lblItemStatus.Name = "lblItemStatus";
+            this.lblItemStatus.Size = new System.Drawing.Size(40, 13);
+            this.lblItemStatus.TabIndex = 29;
+            this.lblItemStatus.Text = "Status:";
+            this.lblItemStatus.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label7
+            // lblItemDueDate
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1, 224);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(53, 13);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Due Date";
+            this.lblItemDueDate.AutoSize = true;
+            this.lblItemDueDate.Location = new System.Drawing.Point(61, 224);
+            this.lblItemDueDate.Name = "lblItemDueDate";
+            this.lblItemDueDate.Size = new System.Drawing.Size(56, 13);
+            this.lblItemDueDate.TabIndex = 28;
+            this.lblItemDueDate.Text = "Due Date:";
+            this.lblItemDueDate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label6
+            // lblItemCheckoutLength
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(1, 170);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(89, 13);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Checkout Length";
+            this.lblItemCheckoutLength.AutoSize = true;
+            this.lblItemCheckoutLength.Location = new System.Drawing.Point(25, 170);
+            this.lblItemCheckoutLength.Name = "lblItemCheckoutLength";
+            this.lblItemCheckoutLength.Size = new System.Drawing.Size(92, 13);
+            this.lblItemCheckoutLength.TabIndex = 27;
+            this.lblItemCheckoutLength.Text = "Checkout Length:";
+            this.lblItemCheckoutLength.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label5
+            // lblItemType
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
-            this.label5.TabIndex = 26;
-            this.label5.Text = "Type";
+            this.lblItemType.AutoSize = true;
+            this.lblItemType.Location = new System.Drawing.Point(83, 147);
+            this.lblItemType.Name = "lblItemType";
+            this.lblItemType.Size = new System.Drawing.Size(34, 13);
+            this.lblItemType.TabIndex = 26;
+            this.lblItemType.Text = "Type:";
+            this.lblItemType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label4
+            // lblItemTitle
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(1, 124);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "Title";
+            this.lblItemTitle.AutoSize = true;
+            this.lblItemTitle.Location = new System.Drawing.Point(87, 124);
+            this.lblItemTitle.Name = "lblItemTitle";
+            this.lblItemTitle.Size = new System.Drawing.Size(30, 13);
+            this.lblItemTitle.TabIndex = 25;
+            this.lblItemTitle.Text = "Title:";
+            this.lblItemTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label3
+            // lblPatronItemsCheckedOut
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(1, 88);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
-            this.label3.TabIndex = 24;
-            this.label3.Text = "No. Items Checked Out";
+            this.lblPatronItemsCheckedOut.AutoSize = true;
+            this.lblPatronItemsCheckedOut.Location = new System.Drawing.Point(-4, 88);
+            this.lblPatronItemsCheckedOut.Name = "lblPatronItemsCheckedOut";
+            this.lblPatronItemsCheckedOut.Size = new System.Drawing.Size(121, 13);
+            this.lblPatronItemsCheckedOut.TabIndex = 24;
+            this.lblPatronItemsCheckedOut.Text = "No. Items Checked Out:";
+            this.lblPatronItemsCheckedOut.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label2
+            // lblPatronType
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(1, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(31, 13);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Type";
+            this.lblPatronType.AutoSize = true;
+            this.lblPatronType.Location = new System.Drawing.Point(83, 62);
+            this.lblPatronType.Name = "lblPatronType";
+            this.lblPatronType.Size = new System.Drawing.Size(34, 13);
+            this.lblPatronType.TabIndex = 23;
+            this.lblPatronType.Text = "Type:";
+            this.lblPatronType.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label1
+            // lblPatronName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Name";
+            this.lblPatronName.AutoSize = true;
+            this.lblPatronName.Location = new System.Drawing.Point(79, 36);
+            this.lblPatronName.Name = "lblPatronName";
+            this.lblPatronName.Size = new System.Drawing.Size(38, 13);
+            this.lblPatronName.TabIndex = 22;
+            this.lblPatronName.Text = "Name:";
+            this.lblPatronName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button2
+            // btnCheckIn
             // 
-            this.button2.Location = new System.Drawing.Point(437, 334);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 21;
-            this.button2.Text = "Check In";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Location = new System.Drawing.Point(437, 334);
+            this.btnCheckIn.Name = "btnCheckIn";
+            this.btnCheckIn.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckIn.TabIndex = 21;
+            this.btnCheckIn.Text = "Check In";
+            this.btnCheckIn.UseVisualStyleBackColor = true;
+            this.btnCheckIn.Click += new System.EventHandler(this.btnCheckIn_Click);
             // 
-            // button1
+            // btnCheckOut
             // 
-            this.button1.Location = new System.Drawing.Point(437, 272);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "Check Out";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Location = new System.Drawing.Point(437, 272);
+            this.btnCheckOut.Name = "btnCheckOut";
+            this.btnCheckOut.Size = new System.Drawing.Size(75, 23);
+            this.btnCheckOut.TabIndex = 20;
+            this.btnCheckOut.Text = "Check Out";
+            this.btnCheckOut.UseVisualStyleBackColor = true;
+            this.btnCheckOut.Click += new System.EventHandler(this.btnCheckOut_Click);
             // 
-            // listBox4
+            // lstItemsOverdue
             // 
-            this.listBox4.FormattingEnabled = true;
-            this.listBox4.Location = new System.Drawing.Point(22, 289);
-            this.listBox4.Name = "listBox4";
-            this.listBox4.Size = new System.Drawing.Size(163, 108);
-            this.listBox4.TabIndex = 19;
+            this.lstItemsOverdue.FormattingEnabled = true;
+            this.lstItemsOverdue.Location = new System.Drawing.Point(22, 289);
+            this.lstItemsOverdue.Name = "lstItemsOverdue";
+            this.lstItemsOverdue.Size = new System.Drawing.Size(163, 108);
+            this.lstItemsOverdue.TabIndex = 19;
             // 
-            // listBox2
+            // lstItemsLibrary
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(528, 224);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(152, 173);
-            this.listBox2.TabIndex = 17;
+            this.lstItemsLibrary.FormattingEnabled = true;
+            this.lstItemsLibrary.Location = new System.Drawing.Point(528, 224);
+            this.lstItemsLibrary.Name = "lstItemsLibrary";
+            this.lstItemsLibrary.Size = new System.Drawing.Size(152, 173);
+            this.lstItemsLibrary.TabIndex = 17;
             // 
-            // listBox1
+            // lstPatrons
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(528, 62);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(152, 121);
-            this.listBox1.TabIndex = 16;
+            this.lstPatrons.FormattingEnabled = true;
+            this.lstPatrons.Location = new System.Drawing.Point(528, 62);
+            this.lstPatrons.Name = "lstPatrons";
+            this.lstPatrons.Size = new System.Drawing.Size(152, 121);
+            this.lstPatrons.TabIndex = 16;
             // 
             // saveToolStripMenuItem1
             // 
@@ -212,13 +222,13 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
             // 
-            // listBox3
+            // lstItemsCheckedOut
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(202, 289);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(163, 108);
-            this.listBox3.TabIndex = 18;
+            this.lstItemsCheckedOut.FormattingEnabled = true;
+            this.lstItemsCheckedOut.Location = new System.Drawing.Point(202, 289);
+            this.lstItemsCheckedOut.Name = "lstItemsCheckedOut";
+            this.lstItemsCheckedOut.Size = new System.Drawing.Size(163, 108);
+            this.lstItemsCheckedOut.TabIndex = 18;
             // 
             // menuStrip1
             // 
@@ -230,80 +240,80 @@
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // label9
+            // lblListOfPatrons
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(528, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(74, 13);
-            this.label9.TabIndex = 30;
-            this.label9.Text = "List of Patrons";
+            this.lblListOfPatrons.AutoSize = true;
+            this.lblListOfPatrons.Location = new System.Drawing.Point(525, 46);
+            this.lblListOfPatrons.Name = "lblListOfPatrons";
+            this.lblListOfPatrons.Size = new System.Drawing.Size(74, 13);
+            this.lblListOfPatrons.TabIndex = 30;
+            this.lblListOfPatrons.Text = "List of Patrons";
             // 
-            // label10
+            // lblListOfItems
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(528, 205);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(63, 13);
-            this.label10.TabIndex = 31;
-            this.label10.Text = "List of Items";
+            this.lblListOfItems.AutoSize = true;
+            this.lblListOfItems.Location = new System.Drawing.Point(525, 208);
+            this.lblListOfItems.Name = "lblListOfItems";
+            this.lblListOfItems.Size = new System.Drawing.Size(63, 13);
+            this.lblListOfItems.TabIndex = 31;
+            this.lblListOfItems.Text = "List of Items";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(19, 263);
+            this.label11.Location = new System.Drawing.Point(19, 273);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(76, 13);
             this.label11.TabIndex = 32;
             this.label11.Text = "Items Overdue";
             // 
-            // label12
+            // lblListOfCurrentlyCheckedOut
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(199, 263);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(142, 13);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Items Currently Checked Out";
+            this.lblListOfCurrentlyCheckedOut.AutoSize = true;
+            this.lblListOfCurrentlyCheckedOut.Location = new System.Drawing.Point(199, 273);
+            this.lblListOfCurrentlyCheckedOut.Name = "lblListOfCurrentlyCheckedOut";
+            this.lblListOfCurrentlyCheckedOut.Size = new System.Drawing.Size(142, 13);
+            this.lblListOfCurrentlyCheckedOut.TabIndex = 33;
+            this.lblListOfCurrentlyCheckedOut.Text = "Items Currently Checked Out";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 55);
+            this.textBox1.Location = new System.Drawing.Point(120, 59);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 34;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 81);
+            this.textBox2.Location = new System.Drawing.Point(120, 85);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 35;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 28);
+            this.textBox3.Location = new System.Drawing.Point(120, 33);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 36;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(120, 116);
+            this.textBox4.Location = new System.Drawing.Point(120, 121);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 37;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 139);
+            this.textBox5.Location = new System.Drawing.Point(120, 144);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 38;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(120, 162);
+            this.textBox6.Location = new System.Drawing.Point(120, 167);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 39;
@@ -317,7 +327,7 @@
             // 
             // textBox7
             // 
-            this.textBox7.Location = new System.Drawing.Point(120, 198);
+            this.textBox7.Location = new System.Drawing.Point(120, 192);
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(100, 20);
             this.textBox7.TabIndex = 42;
@@ -335,24 +345,24 @@
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lblListOfCurrentlyCheckedOut);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.listBox4);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.lblListOfItems);
+            this.Controls.Add(this.lblListOfPatrons);
+            this.Controls.Add(this.lblItemStatus);
+            this.Controls.Add(this.lblItemDueDate);
+            this.Controls.Add(this.lblItemCheckoutLength);
+            this.Controls.Add(this.lblItemType);
+            this.Controls.Add(this.lblItemTitle);
+            this.Controls.Add(this.lblPatronItemsCheckedOut);
+            this.Controls.Add(this.lblPatronType);
+            this.Controls.Add(this.lblPatronName);
+            this.Controls.Add(this.btnCheckIn);
+            this.Controls.Add(this.btnCheckOut);
+            this.Controls.Add(this.lstItemsOverdue);
+            this.Controls.Add(this.lstItemsLibrary);
+            this.Controls.Add(this.lstPatrons);
+            this.Controls.Add(this.lstItemsCheckedOut);
             this.Controls.Add(this.menuStrip1);
             this.Name = "LibraryForm";
             this.Text = "Library";
@@ -365,30 +375,30 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ListBox listBox4;
-        private System.Windows.Forms.ListBox listBox2;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label lblItemStatus;
+        private System.Windows.Forms.Label lblItemDueDate;
+        private System.Windows.Forms.Label lblItemCheckoutLength;
+        private System.Windows.Forms.Label lblItemType;
+        private System.Windows.Forms.Label lblItemTitle;
+        private System.Windows.Forms.Label lblPatronItemsCheckedOut;
+        private System.Windows.Forms.Label lblPatronType;
+        private System.Windows.Forms.Label lblPatronName;
+        private System.Windows.Forms.Button btnCheckIn;
+        private System.Windows.Forms.Button btnCheckOut;
+        private System.Windows.Forms.ListBox lstItemsOverdue;
+        private System.Windows.Forms.ListBox lstItemsLibrary;
+        private System.Windows.Forms.ListBox lstPatrons;
         private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ListBox listBox3;
+        private System.Windows.Forms.ListBox lstItemsCheckedOut;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblListOfPatrons;
+        private System.Windows.Forms.Label lblListOfItems;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label lblListOfCurrentlyCheckedOut;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

@@ -16,5 +16,16 @@ namespace LibraryProject
         {
             InitializeComponent();
         }
+
+        private void btnCheckOut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCheckIn_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
