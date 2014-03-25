@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace LibraryProject
 {
-    public partial class Form1 : Form
+    public partial class LibraryForm : Form
     {
-        public Form1()
+        public LibraryForm()
         {
             InitializeComponent();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
