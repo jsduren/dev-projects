@@ -71,7 +71,6 @@
             this.label8.Size = new System.Drawing.Size(37, 13);
             this.label8.TabIndex = 29;
             this.label8.Text = "Status";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label7
             // 
