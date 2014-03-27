@@ -4,6 +4,10 @@ class Patron
 	private string first;
 	private string last;
 	
+	public displayName();
+	public virtual displayItems();
+	public virtual checkout();
+	public virtual checkin();
 }
 
 //Child class

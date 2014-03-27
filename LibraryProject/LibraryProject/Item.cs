@@ -2,6 +2,13 @@
 class Item 
 {
 	private string title;
+	private string whoCheckedOut;
+	//timestamp of check out date
+	//due date 
+	
+	public checkout();
+	public checkin();
+	public days();
 }
 
 //child Book
