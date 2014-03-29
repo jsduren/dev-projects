@@ -1,8 +1,11 @@
 //Item Class
+using System;
+
 class Item 
 {
 	private string title;
 	private string whoCheckedOut;
+    public DateTime dueDate; //I added this so I could compare the dates. -Brad
 	//timestamp of check out date
 	//due date 
 	
