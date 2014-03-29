@@ -12,6 +12,9 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
+        private Patron curPatron;
+        private Item curItem;
+
         private Object ListBoxIndexSelected(ListBox lstBox)
         {
             var listName = lstBox.Name.ToString();
@@ -24,12 +27,12 @@ namespace LibraryProject
             return items[selItem];
         }
 
-        private void updatePatronInfo(Patron selPatron)
+        private void updatePatronInfo()
         {
             
         }
 
-        private void updateItemInfo(Item selItem)
+        private void updateItemInfo()
         {
             
         }
@@ -66,7 +69,7 @@ namespace LibraryProject
         {
             for (int i = 0; i < lstBox.Size.Height; i++)
             {
-                lstBox.
+                
             }
         }
 
@@ -80,10 +83,14 @@ namespace LibraryProject
             
         }
 
-        private void btnClicked()
+        private void btnCheckOutClicked()
         {
             
         }
 
+        private void btnCheckInClicked()
+        {
+            
+        }
     }
 }
