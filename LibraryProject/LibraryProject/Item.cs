@@ -5,10 +5,21 @@ class Item
 	private string whoCheckedOut;
 	//timestamp of check out date
 	//due date 
-	
-	public void checkout();
-	public void checkin();
-	public void days();
+
+    // added the function brackets to be able to compile program. -Josh
+    public void checkout()
+    {
+    }
+
+    // added the function brackets to be able to compile program. -Josh
+    public void checkin()
+    {
+    }
+
+    // added the function brackets to be able to compile program. -Josh
+    public void days()
+    {
+    }
 }
 
 //child Book
