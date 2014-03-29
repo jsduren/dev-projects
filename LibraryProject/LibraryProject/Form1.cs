@@ -12,6 +12,10 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
+        private List<Patron> patrons = new List<Patron>();
+        private List<Item> items = new List<Item>)();
+
+
         public LibraryForm()
         {
             InitializeComponent();
