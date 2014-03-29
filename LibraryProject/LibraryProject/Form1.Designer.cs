@@ -54,7 +54,7 @@
             this.lblListOfCurrentlyCheckedOut = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtBName = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
@@ -178,6 +178,7 @@
             this.lstItemsLibrary.Name = "lstItemsLibrary";
             this.lstItemsLibrary.Size = new System.Drawing.Size(152, 173);
             this.lstItemsLibrary.TabIndex = 17;
+            this.lstItemsLibrary.SelectedIndexChanged += new System.EventHandler(this.lstItemsLibrary_SelectedIndexChanged);
             // 
             // lstPatrons
             // 
@@ -186,6 +187,7 @@
             this.lstPatrons.Name = "lstPatrons";
             this.lstPatrons.Size = new System.Drawing.Size(152, 121);
             this.lstPatrons.TabIndex = 16;
+            this.lstPatrons.SelectedIndexChanged += new System.EventHandler(this.lstPatrons_SelectedIndexChanged);
             // 
             // exitToolStripMenuItem
             // 
@@ -206,12 +208,14 @@
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // fileToolStripMenuItem
             // 
@@ -292,12 +296,13 @@
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 35;
             // 
-            // textBox3
+            // txtBName
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 36;
+            this.txtBName.Enabled = false;
+            this.txtBName.Location = new System.Drawing.Point(120, 33);
+            this.txtBName.Name = "txtBName";
+            this.txtBName.Size = new System.Drawing.Size(100, 20);
+            this.txtBName.TabIndex = 36;
             // 
             // textBox4
             // 
@@ -344,7 +349,7 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txtBName);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lblListOfCurrentlyCheckedOut);
@@ -403,7 +408,7 @@
         private System.Windows.Forms.Label lblListOfCurrentlyCheckedOut;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtBName;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox6;

@@ -12,6 +12,18 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
+        private void ListBoxIndexSelected(ListBox lstBox)
+        {
+
+            var selItem = lstBox.SelectedIndex.ToString();
+
+
+        }
+
+        private void updatePatronInfo(Patron selPatron)
+        {
+            lblPatronName.
+        }
 
     }
 }
