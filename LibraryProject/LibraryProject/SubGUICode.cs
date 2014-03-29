@@ -12,17 +12,77 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
-        private void ListBoxIndexSelected(ListBox lstBox)
+        private Object ListBoxIndexSelected(ListBox lstBox)
         {
-
-            var selItem = lstBox.SelectedIndex.ToString();
-
-
+            var listName = lstBox.Name.ToString();
+            var selItem = int.Parse(lstBox.SelectedIndex.ToString());
+            if (listName == "lstPatrons")
+            {
+                return patrons[selItem];
+            }
+            
+            return items[selItem];
         }
 
         private void updatePatronInfo(Patron selPatron)
         {
-            lblPatronName.
+            
+        }
+
+        private void updateItemInfo(Item selItem)
+        {
+            
+        }
+
+        private void updateItemsCheckOut()
+        {
+            
+        }
+
+        private void updateItemsLibrary()
+        {
+            
+        }
+
+        private void selectedIndexChanged(ListBox lstBox)
+        {
+            var listName = lstBox.Name.ToString();
+
+            if (listName == "lstItemsLibrary")
+            {
+                
+            } 
+            else if (listName == "lstItemsCheckedOut")
+            {
+                
+            }
+            else if (listName == "listPatrons")
+            {
+                
+            }
+        }
+
+        private void patronSelected(ListBox lstBox)
+        {
+            for (int i = 0; i < lstBox.Size.Height; i++)
+            {
+                lstBox.
+            }
+        }
+
+        private void itemLibrarySelected(ListBox lstBox)
+        {
+            
+        }
+
+        private void itemCheckOutSelected(ListBox lstBox)
+        {
+            
+        }
+
+        private void btnClicked()
+        {
+            
         }
 
     }
