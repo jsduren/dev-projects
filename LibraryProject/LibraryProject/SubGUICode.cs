@@ -85,12 +85,34 @@ namespace LibraryProject
 
         private void btnCheckOutClicked()
         {
-            
+            //pass the Item that is being checked out to the Patron class
+            curItem.checkout(curPatron.getName(), dateToday.Value.Date);
+            curPatron.checkout(curItem); //curItem is a Item object
+            updateItemsCheckOut();
+            updateItemsLibrary();
+
         }
 
         private void btnCheckInClicked()
         {
-            
+            curItem.checkin();
+            curPatron.checkin(curItem); //curItem is a Item object
+            updateItemsCheckOut();
+            updateItemsLibrary();
+        }
+
+        //Code for when the button to advance the date is clicked
+        private void btnAdvancedDayClicked()
+        {
+            //Increment the date by one
+            var today = dateToday.Value.AddDays(1);
+            foreach (Item x in checkedOut)
+            {
+                if (x.dueDate < today)
+                {
+                    lstItemsOverdue.Items.Add(x);
+                }
+            }
         }
     }
 }

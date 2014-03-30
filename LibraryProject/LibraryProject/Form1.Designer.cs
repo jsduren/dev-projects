@@ -239,6 +239,7 @@
             this.lstItemsCheckedOut.Name = "lstItemsCheckedOut";
             this.lstItemsCheckedOut.Size = new System.Drawing.Size(163, 108);
             this.lstItemsCheckedOut.TabIndex = 18;
+            this.lstItemsCheckedOut.SelectedIndexChanged += new System.EventHandler(this.lstItemsCheckedOut_SelectedIndexChanged);
             // 
             // menuStrip1
             // 

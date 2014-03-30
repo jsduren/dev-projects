@@ -24,12 +24,12 @@ namespace LibraryProject
 
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
-
+            btnCheckOutClicked();
         }
 
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
-
+            btnCheckInClicked();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -56,28 +56,28 @@ namespace LibraryProject
 
         }
 
+        //when the list of library items is clicked 
         private void lstItemsLibrary_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            selectedIndexChanged(lstItemsLibrary);
         }
 
+        //when the list that contains the patrons is clicked
         private void lstPatrons_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            selectedIndexChanged(lstPatrons);
         }
 
         //Listener for when the advance time button is clicked
         private void btnAdvDate_Click(object sender, EventArgs e)
         {
-            //Increment the date by one
-            var today = dateToday.Value.AddDays(1);
-            foreach (Item x in checkedOut)
-            {
-                if (x.dueDate < today)
-                {
-                    lstItemsOverdue.Items.Add(x);
-                }
-            }
+            btnAdvancedDayClicked();
+        }
+
+        //when the list that contains the checked out items is clicked
+        private void lstItemsCheckedOut_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedIndexChanged(lstItemsCheckedOut);
         }
 
     }
