@@ -1,5 +1,5 @@
 //Patron class
-class  Patron
+public class Patron
 {
 	private string first;
 	private string last;
@@ -33,9 +33,9 @@ class  Patron
 }
 
 //Child class
-class Child : Patron
+public class Child : Patron
 {
-	private const int MAX_ITEMS = 3;
+	public const int MAX_ITEMS = 3;
 	//array to hold books max == 3
 
     // Completed the override class to be able to compile program. -Josh
@@ -60,7 +60,7 @@ class Child : Patron
 //Adult class
 class Adult : Patron
 {
-	private const int MAX_ITEMS = 6;
+	public const int MAX_ITEMS = 6;
 	//array to hold items, max is 6
 
     // Completed the override class to be able to compile program. -Josh

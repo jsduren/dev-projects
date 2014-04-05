@@ -40,14 +40,45 @@ namespace LibraryProject
             if (curPatron is Adult)
             {
                 txtBPatronType.Text = "Adult";
+                //Adult adult = (Adult)curPatron;
+                
+                txtBPatronItemsOut.Text = calculateNoItems(Adult.MAX_ITEMS, (Adult)curPatron).ToString();
             }
             else if (curPatron is Child)
             {
                 txtBPatronType.Text = "Child";
-            }
+                //Child child = (Child)curPatron;
 
-            //I am unsure how to access the child classes (Adult, Child) from an instance of the parent class (Patron)
-            //var childPatron = (Child)curPatron;
+                txtBPatronItemsOut.Text = calculateNoItems(Child.MAX_ITEMS, (Child)curPatron).ToString();
+            }
+        }
+
+        //calculates the number of items in the Adult AdultItems array
+        private int calculateNoItems(int maxItems, Adult theAdult)
+        {
+            int patronItemCount = 0;
+            for (int i = 0; i < maxItems; i++)
+            {
+                if (theAdult.adultArray[i] != null)
+                {
+                    patronItemCount++;
+                }
+            }
+            return patronItemCount;
+        }
+
+        //calculates the number of items in the Child ChildBooks array
+        private int calculateNoItems(int maxItems, Child theChild)
+        {
+            int patronItemCount = 0;
+            for (int i = 0; i < maxItems; i++)
+            {
+                if (theChild.childArray[i] != null)
+                {
+                    patronItemCount++;
+                }
+            }
+            return patronItemCount;
         }
 
         //Brad
