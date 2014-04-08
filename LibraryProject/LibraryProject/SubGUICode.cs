@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,23 +16,23 @@ namespace LibraryProject
         private Patron curPatron;
         private Item curItem;
 
-        private Object ListBoxIndexSelected(ListBox lstBox)
-        {
+        // Will return the correct type of object for what list the index was selected on
+        private Object ListBoxIndexSelected(ListBox lstBox){
             var listName = lstBox.Name.ToString();
-            var selItem = int.Parse(lstBox.SelectedIndex.ToString());
-            if (listName == "lstPatrons")
-            {
+            var selItem = int.Parse(lstBox.SelectedIndex.ToString(CultureInfo.InvariantCulture));
+            if (listName == "lstPatrons"){
                 return patrons[selItem];
             }
-            
-            return items[selItem];
+            return  items[selItem];
         }
+
 
         private void updatePatronInfo()
         {
             
         }
 
+        
         private void updateItemInfo()
         {
             
@@ -39,48 +40,72 @@ namespace LibraryProject
 
         private void updateItemsCheckOut()
         {
+            lstItemsCheckedOut = checkedOut;
+        }
+
+        private void updateItemsLibrary(){
+            lstItemsLibrary = items;
+        }
+
+        private void updateOverdueItems()
+        {
+            foreach (var item in lstItemsCheckedOut)
+            {
+                if (item.dueDate > dateToday.Value)
+                {
+                    
+                }
+                //lstItemsOverdue. item;
+            }
             
         }
 
-        private void updateItemsLibrary()
-        {
-            
-        }
-
-        private void selectedIndexChanged(ListBox lstBox)
-        {
+        private void SelectedIndexChanged(ListBox lstBox){
             var listName = lstBox.Name.ToString();
 
-            if (listName == "lstItemsLibrary")
-            {
-                
+            if (listName == "lstItemsLibrary"){
+                itemLibrarySelected(lstBox);
             } 
-            else if (listName == "lstItemsCheckedOut")
-            {
-                
+            else if (listName == "lstItemsCheckedOut"){
+                itemCheckOutSelected(lstBox);
             }
-            else if (listName == "listPatrons")
-            {
-                
+            else if (listName == "listPatrons"){
+                patronSelected(lstBox);
             }
         }
 
         private void patronSelected(ListBox lstBox)
         {
-            for (int i = 0; i < lstBox.Size.Height; i++)
+            curPatron = (Patron)ListBoxIndexSelected(lstBox);
+            updatePatronInfo();
+        }
+
+        // Selecting an item that will be(if not already) checked out
+        private void itemLibrarySelected(ListBox lstBox){
+            curItem = (Item)ListBoxIndexSelected(lstBox);
+            btnCheckIn.Enabled = false;
+            if (!curItem.checkOutState)
             {
-                
+                btnCheckOut.Enabled = true;
             }
+            else
+            {
+                btnCheckOut.Enabled = false;
+            }
+            updateItemInfo();
         }
 
-        private void itemLibrarySelected(ListBox lstBox)
-        {
-            
-        }
-
-        private void itemCheckOutSelected(ListBox lstBox)
-        {
-            
+        // Selecting an item that can be checked in (that is alreayd check out)
+        private void itemCheckOutSelected(ListBox lstBox){
+            curItem = (Item)ListBoxIndexSelected(lstBox);
+            btnCheckOut.Enabled = false;
+            if (curItem.checkOutState){
+                btnCheckIn.Enabled = true;
+            }
+            else{
+                btnCheckIn.Enabled = false;
+            }
+            updateItemInfo();
         }
 
         private void btnCheckOutClicked()

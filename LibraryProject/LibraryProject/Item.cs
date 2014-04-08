@@ -6,6 +6,7 @@ class Item
 	private string title;
 	private string whoCheckedOut;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
+    public bool checkOutState; //Added this so I could test for current checkout state -Josh
 	//timestamp of check out date
 	//due date 
 
