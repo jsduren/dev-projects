@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-//Item Class...
-=======
 //Item Class
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
 using System;
 
 class Item 

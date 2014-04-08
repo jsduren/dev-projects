@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-//Patron class...
-=======
 //Patron class
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
 public class Patron
 {
 	private string first;
@@ -39,16 +35,12 @@ public class Patron
 //Child class
 public class Child : Patron
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	private static const int MAX = 3;
 	ChildBook[MAX];
 	public override checkout(){}
 	public override checkin(){}
 	public override displayItems(){}
-=======
-=======
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
+
 	public const int MAX_ITEMS = 3;
 	//array to hold books max == 3
 
@@ -69,25 +61,17 @@ public class Child : Patron
     {
         
     }
-<<<<<<< HEAD
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
-=======
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
 }
 
 //Adult class
 class Adult : Patron
 {
-<<<<<<< HEAD
-<<<<<<< HEAD
 	private static const int MAX = 6;
 	Item[MAX];
 	public override checkout(){}
 	public override checkin(){}
 	public override displayItems(){}
-=======
-=======
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
+
 	public const int MAX_ITEMS = 6;
 	//array to hold items, max is 6
 
@@ -108,8 +92,4 @@ class Adult : Patron
     {
 
     }
-<<<<<<< HEAD
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
-=======
->>>>>>> a6afcf74d147a987feb2bb2243f4e34df8d63c97
 }
