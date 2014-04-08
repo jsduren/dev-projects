@@ -41,10 +41,10 @@
             this.lstItemsOverdue = new System.Windows.Forms.ListBox();
             this.lstItemsLibrary = new System.Windows.Forms.ListBox();
             this.lstPatrons = new System.Windows.Forms.ListBox();
-            this.saveToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstItemsCheckedOut = new System.Windows.Forms.ListBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -52,14 +52,17 @@
             this.lblListOfItems = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblListOfCurrentlyCheckedOut = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtBPatronType = new System.Windows.Forms.TextBox();
+            this.txtBPatronItemsOut = new System.Windows.Forms.TextBox();
+            this.txtBPatronName = new System.Windows.Forms.TextBox();
+            this.txtBItemTitle = new System.Windows.Forms.TextBox();
+            this.txtBItemType = new System.Windows.Forms.TextBox();
+            this.txtBItemCheckoutLen = new System.Windows.Forms.TextBox();
+            this.dateDue = new System.Windows.Forms.DateTimePicker();
+            this.txtBItemStatus = new System.Windows.Forms.TextBox();
+            this.lblTodayDate = new System.Windows.Forms.Label();
+            this.dateToday = new System.Windows.Forms.DateTimePicker();
+            this.btnAdvDate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -165,6 +168,7 @@
             // 
             // lstItemsOverdue
             // 
+            this.lstItemsOverdue.Enabled = false;
             this.lstItemsOverdue.FormattingEnabled = true;
             this.lstItemsOverdue.Location = new System.Drawing.Point(22, 289);
             this.lstItemsOverdue.Name = "lstItemsOverdue";
@@ -178,6 +182,7 @@
             this.lstItemsLibrary.Name = "lstItemsLibrary";
             this.lstItemsLibrary.Size = new System.Drawing.Size(152, 173);
             this.lstItemsLibrary.TabIndex = 17;
+            this.lstItemsLibrary.SelectedIndexChanged += new System.EventHandler(this.lstItemsLibrary_SelectedIndexChanged);
             // 
             // lstPatrons
             // 
@@ -186,38 +191,43 @@
             this.lstPatrons.Name = "lstPatrons";
             this.lstPatrons.Size = new System.Drawing.Size(152, 121);
             this.lstPatrons.TabIndex = 16;
-            // 
-            // saveToolStripMenuItem1
-            // 
-            this.saveToolStripMenuItem1.Name = "saveToolStripMenuItem1";
-            this.saveToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.saveToolStripMenuItem1.Text = "Exit";
-            // 
-            // openToolStripMenuItem1
-            // 
-            this.openToolStripMenuItem1.Name = "openToolStripMenuItem1";
-            this.openToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.openToolStripMenuItem1.Text = "About";
+            this.lstPatrons.SelectedIndexChanged += new System.EventHandler(this.lstPatrons_SelectedIndexChanged);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.exitToolStripMenuItem.Text = "Save";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.aboutToolStripMenuItem.Text = "Open";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Text = "Open";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openToolStripMenuItem,
+            this.saveToolStripMenuItem,
             this.aboutToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.openToolStripMenuItem1,
-            this.saveToolStripMenuItem1});
+            this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "File";
@@ -229,6 +239,7 @@
             this.lstItemsCheckedOut.Name = "lstItemsCheckedOut";
             this.lstItemsCheckedOut.Size = new System.Drawing.Size(163, 108);
             this.lstItemsCheckedOut.TabIndex = 18;
+            this.lstItemsCheckedOut.SelectedIndexChanged += new System.EventHandler(this.lstItemsCheckedOut_SelectedIndexChanged);
             // 
             // menuStrip1
             // 
@@ -276,75 +287,112 @@
             this.lblListOfCurrentlyCheckedOut.TabIndex = 33;
             this.lblListOfCurrentlyCheckedOut.Text = "Items Currently Checked Out";
             // 
-            // textBox1
+            // txtBPatronType
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 59);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 34;
+            this.txtBPatronType.Enabled = false;
+            this.txtBPatronType.Location = new System.Drawing.Point(120, 59);
+            this.txtBPatronType.Name = "txtBPatronType";
+            this.txtBPatronType.Size = new System.Drawing.Size(100, 20);
+            this.txtBPatronType.TabIndex = 34;
             // 
-            // textBox2
+            // txtBPatronItemsOut
             // 
-            this.textBox2.Location = new System.Drawing.Point(120, 85);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 35;
+            this.txtBPatronItemsOut.Enabled = false;
+            this.txtBPatronItemsOut.Location = new System.Drawing.Point(120, 85);
+            this.txtBPatronItemsOut.Name = "txtBPatronItemsOut";
+            this.txtBPatronItemsOut.Size = new System.Drawing.Size(100, 20);
+            this.txtBPatronItemsOut.TabIndex = 35;
             // 
-            // textBox3
+            // txtBPatronName
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 36;
+            this.txtBPatronName.Enabled = false;
+            this.txtBPatronName.Location = new System.Drawing.Point(120, 33);
+            this.txtBPatronName.Name = "txtBPatronName";
+            this.txtBPatronName.Size = new System.Drawing.Size(100, 20);
+            this.txtBPatronName.TabIndex = 36;
             // 
-            // textBox4
+            // txtBItemTitle
             // 
-            this.textBox4.Location = new System.Drawing.Point(120, 121);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 37;
+            this.txtBItemTitle.Enabled = false;
+            this.txtBItemTitle.Location = new System.Drawing.Point(120, 121);
+            this.txtBItemTitle.Name = "txtBItemTitle";
+            this.txtBItemTitle.Size = new System.Drawing.Size(100, 20);
+            this.txtBItemTitle.TabIndex = 37;
             // 
-            // textBox5
+            // txtBItemType
             // 
-            this.textBox5.Location = new System.Drawing.Point(120, 144);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 38;
+            this.txtBItemType.Enabled = false;
+            this.txtBItemType.Location = new System.Drawing.Point(120, 144);
+            this.txtBItemType.Name = "txtBItemType";
+            this.txtBItemType.Size = new System.Drawing.Size(100, 20);
+            this.txtBItemType.TabIndex = 38;
             // 
-            // textBox6
+            // txtBItemCheckoutLen
             // 
-            this.textBox6.Location = new System.Drawing.Point(120, 167);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 39;
+            this.txtBItemCheckoutLen.Enabled = false;
+            this.txtBItemCheckoutLen.Location = new System.Drawing.Point(120, 167);
+            this.txtBItemCheckoutLen.Name = "txtBItemCheckoutLen";
+            this.txtBItemCheckoutLen.Size = new System.Drawing.Size(100, 20);
+            this.txtBItemCheckoutLen.TabIndex = 39;
             // 
-            // dateTimePicker1
+            // dateDue
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(120, 218);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 41;
+            this.dateDue.Enabled = false;
+            this.dateDue.Location = new System.Drawing.Point(120, 218);
+            this.dateDue.Name = "dateDue";
+            this.dateDue.Size = new System.Drawing.Size(200, 20);
+            this.dateDue.TabIndex = 41;
             // 
-            // textBox7
+            // txtBItemStatus
             // 
-            this.textBox7.Location = new System.Drawing.Point(120, 192);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 42;
+            this.txtBItemStatus.Enabled = false;
+            this.txtBItemStatus.Location = new System.Drawing.Point(120, 192);
+            this.txtBItemStatus.Name = "txtBItemStatus";
+            this.txtBItemStatus.Size = new System.Drawing.Size(100, 20);
+            this.txtBItemStatus.TabIndex = 42;
+            // 
+            // lblTodayDate
+            // 
+            this.lblTodayDate.AutoSize = true;
+            this.lblTodayDate.Location = new System.Drawing.Point(339, 36);
+            this.lblTodayDate.Name = "lblTodayDate";
+            this.lblTodayDate.Size = new System.Drawing.Size(73, 13);
+            this.lblTodayDate.TabIndex = 43;
+            this.lblTodayDate.Text = "Today\'s Date:";
+            // 
+            // dateToday
+            // 
+            this.dateToday.Location = new System.Drawing.Point(281, 54);
+            this.dateToday.Name = "dateToday";
+            this.dateToday.Size = new System.Drawing.Size(200, 20);
+            this.dateToday.TabIndex = 44;
+            // 
+            // btnAdvDate
+            // 
+            this.btnAdvDate.Location = new System.Drawing.Point(333, 80);
+            this.btnAdvDate.Name = "btnAdvDate";
+            this.btnAdvDate.Size = new System.Drawing.Size(88, 23);
+            this.btnAdvDate.TabIndex = 45;
+            this.btnAdvDate.Text = "Advance Date";
+            this.btnAdvDate.UseVisualStyleBackColor = true;
+            this.btnAdvDate.Click += new System.EventHandler(this.btnAdvDate_Click);
             // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(750, 467);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnAdvDate);
+            this.Controls.Add(this.dateToday);
+            this.Controls.Add(this.lblTodayDate);
+            this.Controls.Add(this.txtBItemStatus);
+            this.Controls.Add(this.dateDue);
+            this.Controls.Add(this.txtBItemCheckoutLen);
+            this.Controls.Add(this.txtBItemType);
+            this.Controls.Add(this.txtBItemTitle);
+            this.Controls.Add(this.txtBPatronName);
+            this.Controls.Add(this.txtBPatronItemsOut);
+            this.Controls.Add(this.txtBPatronType);
             this.Controls.Add(this.lblListOfCurrentlyCheckedOut);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.lblListOfItems);
@@ -388,10 +436,10 @@
         private System.Windows.Forms.ListBox lstItemsOverdue;
         private System.Windows.Forms.ListBox lstItemsLibrary;
         private System.Windows.Forms.ListBox lstPatrons;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ListBox lstItemsCheckedOut;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -399,14 +447,17 @@
         private System.Windows.Forms.Label lblListOfItems;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblListOfCurrentlyCheckedOut;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtBPatronType;
+        private System.Windows.Forms.TextBox txtBPatronItemsOut;
+        private System.Windows.Forms.TextBox txtBPatronName;
+        private System.Windows.Forms.TextBox txtBItemTitle;
+        private System.Windows.Forms.TextBox txtBItemType;
+        private System.Windows.Forms.TextBox txtBItemCheckoutLen;
+        private System.Windows.Forms.DateTimePicker dateDue;
+        private System.Windows.Forms.TextBox txtBItemStatus;
+        private System.Windows.Forms.Label lblTodayDate;
+        private System.Windows.Forms.DateTimePicker dateToday;
+        private System.Windows.Forms.Button btnAdvDate;
     }
 }
 
