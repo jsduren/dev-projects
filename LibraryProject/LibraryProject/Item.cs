@@ -29,23 +29,23 @@ class Item
 //child Book
 class ChildBook: Item
 {
-
+	private static const int MAX = 7; //1 week 
 }
 
 //Adult Book
 class AdultBook: Item
 {
-
+	private static const int MAX = 14; //2 weeks
 }
 
 //Dvd
 class DVD: Item 
 {
-
+	private static const int MAX = 2; 
 }
 
 //Vhs
 class VHS: Item
 {
-
+	private static const int MAX = 3; 
 }
