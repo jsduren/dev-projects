@@ -11,8 +11,6 @@ class Item
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
     public bool checkOutState; //Added this so I could test for current checkout state -Josh
-	//timestamp of check out date
-	//due date 
 
 
 	public Item(string _title, bool check, string _who = "", DateTime _checkDate = DateTime.Now)
@@ -43,10 +41,8 @@ class ChildBook: Item
 {
 	private static const int MAX = 7; //1 week 
 	public override void checkout(){}
-	public override int days()
-    {
-		return MAX;
-	}
+	public override int days() {	return MAX;	}
+	ChildBook():Item{}
 }
 
 //Adult Book
@@ -58,6 +54,7 @@ class AdultBook: Item
     {
 		return MAX;
 	}
+	public AdultBook():Item{}
 }
 
 //Dvd
@@ -69,6 +66,7 @@ class DVD: Item
     {
 		return MAX;
 	}
+	public DVD():Item{}
 }
 
 //Vhs
@@ -80,3 +78,5 @@ class VHS: Item
     {
 		return MAX;
 	}
+	public VHS():Item{}
+}
