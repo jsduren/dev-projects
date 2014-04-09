@@ -10,12 +10,13 @@ class Item
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
-	public Item(string _title, bool check, string _who, DateTime _checkDate)
+	public Item(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate)
 	{
 		checkedout = check;
 		title = _title;
 		whoCheckedOut = _who;
 		checkDate = _checkDate;
+		dueDate = _dueDate;
 	}
     // added the function brackets to be able to compile program. -Josh
     public virtual void checkout(string _who){}
@@ -39,7 +40,7 @@ class ChildBook: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public ChildBook(string _title, bool check, string _who, DateTime _checkDate):base(_title, check, _who, _checkDate){}
+	public ChildBook(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
 }
 
 //Adult Book
@@ -53,7 +54,7 @@ class AdultBook: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public AdultBook(string _title, bool check, string _who, DateTime _checkDate):base(_title, check, _who, _checkDate){}
+	public AdultBook(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
 }
 
 //Dvd
@@ -67,7 +68,7 @@ class DVD: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public DVD(string _title, bool check, string _who, DateTime _checkDate):base(_title, check, _who, _checkDate){}
+	public DVD(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
 }
 
 //Vhs
@@ -81,5 +82,5 @@ class VHS: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public VHS(string _title, bool check, string _who, DateTime _checkDate):base(_title, check, _who, _checkDate){}
+	public VHS(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
 }

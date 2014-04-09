@@ -5,9 +5,9 @@ public class Patron
 	private string last;
 	
     //I added the void return type to be able to compile. Change as needed -Brad
-    public void displayName()
+    public string displayName()
     {
-
+		return first + " " + last; 
     }
 
     //I added the void return type to be able to compile. Change as needed -Brad
