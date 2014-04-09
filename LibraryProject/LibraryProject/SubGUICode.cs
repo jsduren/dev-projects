@@ -17,7 +17,7 @@ namespace LibraryProject
         private Item curItem;
 
         // Will return the correct type of object for what list the index was selected on
-        private Object ListBoxIndexSelected(ListBox lstBox){
+        private Ref Object ListBoxIndexSelected(ListBox lstBox){
             var listName = lstBox.Name.ToString();
             var selItem = int.Parse(lstBox.SelectedIndex.ToString(CultureInfo.InvariantCulture));
             if (listName == "lstPatrons"){
@@ -158,7 +158,7 @@ namespace LibraryProject
         private void itemLibrarySelected(ListBox lstBox){
             curItem = (Item)ListBoxIndexSelected(lstBox);
             btnCheckIn.Enabled = false;
-            if (!curItem.checkOutState)
+            if (!curItem.checkedout)
             {
                 btnCheckOut.Enabled = true;
             }
@@ -173,7 +173,7 @@ namespace LibraryProject
         private void itemCheckOutSelected(ListBox lstBox){
             curItem = (Item)ListBoxIndexSelected(lstBox);
             btnCheckOut.Enabled = false;
-            if (curItem.checkOutState){
+            if (curItem.checkedout){
                 btnCheckIn.Enabled = true;
             }
             else{
