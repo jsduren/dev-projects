@@ -80,5 +80,10 @@ namespace LibraryProject
             selectedIndexChanged(lstItemsCheckedOut);
         }
 
+        private void LibraryForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
