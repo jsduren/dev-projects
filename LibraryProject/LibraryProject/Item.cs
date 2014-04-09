@@ -10,7 +10,7 @@ class Item
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
-	public Item(string _title, bool check = false, string _who = "", DateTime _checkDate)
+	public Item(string _title, bool check, string _who, DateTime _checkDate)
 	{
 		checkedout = check;
 		title = _title;
