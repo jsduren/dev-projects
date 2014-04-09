@@ -3,8 +3,15 @@ public class Patron
 {
 	private string first;
 	private string last;
+	public int numberofItems;
 	
-    //I added the void return type to be able to compile. Change as needed -Brad
+    public Patron(string _first, string _last, int _numberofItems = 0)
+	{
+		first = _first;
+		last = _last;
+		numberofItems = _numberofItems;
+	}
+	//I added the void return type to be able to compile. Change as needed -Brad
     public string displayName()
     {
 		return first + " " + last; 
@@ -35,61 +42,65 @@ public class Patron
 //Child class
 public class Child : Patron
 {
-	private static const int MAX = 3;
-	ChildBook[MAX];
-	public override checkout(){}
-	public override checkin(){}
-	public override displayItems(){}
-
-	public const int MAX_ITEMS = 3;
-	//array to hold books max == 3
+	private static const int MAX = 3;	
+	public Child(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
+	{
+	
+	}
 
     // Completed the override class to be able to compile program. -Josh
-    public override void checkout()
+    public override bool checkout(ref Item current) //pass an item as a ref and return a bool 
     {
-        
+        //checks the type
+		if(Item is ChildBook || numberofItems == MAX)
+		{
+			return false;
+		}
+		//if ok call check out of item
+		else 
+		{
+			current.checkout(this.displayname());
+			++numberofItems;
+			return true;
+		}
+		
+    }
+    public override void checkin(ref Item current) //pass by reference item
+    {
+		current.checkin();
+		--numberofItems; 
     }
 
-    // Completed the override class to be able to compile program. -Josh
-    public override void checkin()
-    {
-        
-    }
-
-    // Completed the override class to be able to compile program. -Josh
-    public override void displayItems()
-    {
-        
-    }
 }
 
 //Adult class
 class Adult : Patron
 {
 	private static const int MAX = 6;
-	Item[MAX];
-	public override checkout(){}
-	public override checkin(){}
-	public override displayItems(){}
+	public Adult(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
+	{
+	
+	}
 
-	public const int MAX_ITEMS = 6;
-	//array to hold items, max is 6
-
-    // Completed the override class to be able to compile program. -Josh
-    public override void checkout()
+    public override bool checkout(ref Item current) //pass an item as a ref and return a bool 
     {
-
+        //checks the type
+		if(numberofItems == MAX)
+		{
+			return false;
+		}
+		//if ok call check out of item
+		else 
+		{
+			current.checkout(this.displayname());
+			++numberofItems;
+			return true;
+		}
+		
     }
-
-    // Completed the override class to be able to compile program. -Josh
-    public override void checkin()
+    public override void checkin(ref Item current) //pass by reference item
     {
-
-    }
-
-    // Completed the override class to be able to compile program. -Josh
-    public override void displayItems()
-    {
-
+		current.checkin();
+		--numberofItems; 
     }
 }
