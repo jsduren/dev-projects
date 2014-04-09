@@ -18,9 +18,13 @@ class Item
 		checkDate = _checkDate;
 	}
     // added the function brackets to be able to compile program. -Josh
-    public virtual void checkout(){}
+    public virtual void checkout(string _who){}
     // added the function brackets to be able to compile program. -Josh
-    public void checkin(){}
+    public void checkin()
+	{
+		whoCheckedout = ""
+		checkout = false;
+	}
 	public bool isCheckedOut(){ return checkout;}
 }
 
@@ -30,9 +34,10 @@ class ChildBook: Item
 	private static const int MAX = 7; //1 week 
 	public override void checkout(string _who)
 	{
-		whoCheckOut = _who;
+		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
+		checkout = true;
 	}
 	ChildBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
@@ -43,9 +48,10 @@ class AdultBook: Item
 	private static const int MAX = 14; //2 weeks
 	public override void checkout()
 	{
-		whoCheckOut = _who;
+		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
+		checkout = true;
 	}
 	public AdultBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
@@ -56,9 +62,10 @@ class DVD: Item
 	private static const int MAX = 2;
 	public override void checkout()
 	{
-		whoCheckOut = _who;
+		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
+		checkout = true;
 	}
 	public DVD():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
@@ -69,9 +76,10 @@ class VHS: Item
 	private static const int MAX = 3; 
 	public override void checkout()
 	{
-		whoCheckOut = _who;
+		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
+		checkout = true;
 	}
 	public VHS():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
