@@ -414,6 +414,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Name = "LibraryForm";
             this.Text = "Library";
+            this.Load += new System.EventHandler(this.LibraryForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

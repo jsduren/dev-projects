@@ -9,18 +9,12 @@ using System.IO; // streams
 
 namespace LibraryProject
 {
-    class File
+    static class File
     {
         public List<Item> itemsList;
         public List<Patron> patronsList;
 
-    
-        /// <summary>
-        /// readFile function
-        /// 
-        /// </summary>
-        /// <param name="mystream">Stream element passed from forum</param>
-    
+
         public void readFile()
         {
             string inputstring = null;
@@ -45,8 +39,8 @@ namespace LibraryProject
                 inputstring = data.ReadLine();
                 if (inputstring != "**")
                 {
-                    string title = inputstring;
-                    string category = data.ReadLine();
+                    string category = inputstring;
+                    string title = data.ReadLine();
                     
                     // read in checkedout date
                     DateTime checkedOut = DateTime.Parse(data.ReadLine());
@@ -56,6 +50,7 @@ namespace LibraryProject
                    
                     // create a items object and push to list
                     // need items constructor
+
 
                     //read in next line to check if at end of items list
 
