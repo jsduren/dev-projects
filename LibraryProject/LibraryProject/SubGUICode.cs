@@ -185,8 +185,8 @@ namespace LibraryProject
         private void btnCheckOutClicked()
         {
             //pass the Item that is being checked out to the Patron class
-            curItem.checkout(curPatron.getName(), dateToday.Value.Date);
-            curPatron.checkout(curItem); //curItem is a Item object
+            curItem.checkout(curPatron.displayName());
+            curPatron.checkout(ref curItem); //curItem is a Item object
             updateItemsCheckOut();
             updateItemsLibrary();
 
@@ -195,7 +195,7 @@ namespace LibraryProject
         private void btnCheckInClicked()
         {
             curItem.checkin();
-            curPatron.checkin(curItem); //curItem is a Item object
+            curPatron.checkin(ref curItem); //curItem is a Item object
             updateItemsCheckOut();
             updateItemsLibrary();
         }
@@ -206,9 +206,10 @@ namespace LibraryProject
             //Increment the date by one
             var today = dateToday.Value.AddDays(1);
             int day365 = today.DayOfYear;
+            lstItemsOverdue.Items.Clear();
             foreach (Item x in checkedOut)
             {
-                if (x.dueDate.DayOfYear > day365)
+                if ((x.dueDate.DayOfYear - day365) < 0)
                 {
                     lstItemsOverdue.Items.Add(x);
                 }

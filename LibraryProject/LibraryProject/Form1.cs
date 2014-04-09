@@ -15,6 +15,7 @@ namespace LibraryProject
         private List<Patron> patrons = new List<Patron>();
         private List<Item> items = new List<Item>();
         private List<Item> checkedOut = new List<Item>();
+        private File myFile;
 
 
         public LibraryForm()
@@ -48,12 +49,12 @@ namespace LibraryProject
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-        
+            myFile.readFile();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            myFile.saveFile();
         }
 
         //when the list of library items is clicked 
