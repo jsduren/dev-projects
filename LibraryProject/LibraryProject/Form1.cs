@@ -48,7 +48,7 @@ namespace LibraryProject
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+        
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -78,6 +78,11 @@ namespace LibraryProject
         private void lstItemsCheckedOut_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedIndexChanged(lstItemsCheckedOut);
+        }
+
+        private void LibraryForm_Load(object sender, EventArgs e)
+        {
+
         }
 
     }
