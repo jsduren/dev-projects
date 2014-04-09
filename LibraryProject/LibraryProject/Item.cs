@@ -46,7 +46,7 @@ class ChildBook: Item
 class AdultBook: Item
 {
 	private static const int MAX = 14; //2 weeks
-	public override void checkout()
+	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
@@ -60,7 +60,7 @@ class AdultBook: Item
 class DVD: Item 
 {
 	private static const int MAX = 2;
-	public override void checkout()
+	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
@@ -74,7 +74,7 @@ class DVD: Item
 class VHS: Item
 {
 	private static const int MAX = 3; 
-	public override void checkout()
+	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
