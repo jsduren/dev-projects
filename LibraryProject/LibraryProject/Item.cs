@@ -23,7 +23,7 @@ class Item
     public void checkin()
 	{
 		whoCheckedOut = "";
-		checkout = false;
+		checkedout = false;
 	}
 	public bool isCheckedOut(){ return checkedout; }
 }
@@ -39,7 +39,7 @@ class ChildBook: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	ChildBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
+	public ChildBook(string _title, bool check = false, string _who = "", DateTime _checkDate):base(_title, check, _who, _checkDate){}
 }
 
 //Adult Book
@@ -53,7 +53,7 @@ class AdultBook: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public AdultBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
+	public AdultBook(string _title, bool check = false, string _who = "", DateTime _checkDate):base(_title, check, _who, _checkDate){}
 }
 
 //Dvd
@@ -67,7 +67,7 @@ class DVD: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public DVD():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
+	public DVD(string _title, bool check = false, string _who = "", DateTime _checkDate):base(_title, check, _who, _checkDate){}
 }
 
 //Vhs
@@ -81,5 +81,5 @@ class VHS: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
-	public VHS():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
+	public VHS(string _title, bool check = false, string _who = "", DateTime _checkDate):base(_title, check, _who, _checkDate){}
 }
