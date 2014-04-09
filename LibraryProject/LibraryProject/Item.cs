@@ -6,11 +6,11 @@ class Item
 	//maybe put different types of items as a category as a private 
 	public string title;
 	public string whoCheckedOut;
-	public bool checkout;
+	public bool checkedout;
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
-	public Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now)
+	public Item(string _title, bool check = false, string _who = "", DateTime _checkDate)
 	{
 		checkedout = check;
 		title = _title;
@@ -22,10 +22,10 @@ class Item
     // added the function brackets to be able to compile program. -Josh
     public void checkin()
 	{
-		whoCheckedout = ""
+		whoCheckedOut = "";
 		checkout = false;
 	}
-	public bool isCheckedOut(){ return checkout;}
+	public bool isCheckedOut(){ return checkedout; }
 }
 
 //child Book
@@ -37,9 +37,9 @@ class ChildBook: Item
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
-		checkout = true;
+		checkedout = true;
 	}
-	ChildBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
+	ChildBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
 }
 
 //Adult Book
@@ -51,9 +51,9 @@ class AdultBook: Item
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
-		checkout = true;
+		checkedout = true;
 	}
-	public AdultBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
+	public AdultBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
 }
 
 //Dvd
@@ -65,9 +65,9 @@ class DVD: Item
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
-		checkout = true;
+		checkedout = true;
 	}
-	public DVD():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
+	public DVD():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
 }
 
 //Vhs
@@ -79,7 +79,7 @@ class VHS: Item
 		whoCheckedOut = _who;
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
-		checkout = true;
+		checkedout = true;
 	}
-	public VHS():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
+	public VHS():Item(string _title, bool check = false, string _who = "", DateTime _checkDate){}
 }
