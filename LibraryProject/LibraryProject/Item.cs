@@ -10,9 +10,6 @@ class Item
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
-    public bool checkOutState; //Added this so I could test for current checkout state -Josh
-
-
 	public Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now)
 	{
 		checkedout = check;
@@ -24,8 +21,6 @@ class Item
     public virtual void checkout(){}
     // added the function brackets to be able to compile program. -Josh
     public void checkin(){}
-    // added the function brackets to be able to compile program. -Josh
-    public virtual int days(){}
 	public bool isCheckedOut(){ return checkout;}
 }
 
@@ -39,8 +34,7 @@ class ChildBook: Item
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
 	}
-	public override int days() {	return MAX;	}
-	ChildBook():Item{}
+	ChildBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
 
 //Adult Book
@@ -53,8 +47,7 @@ class AdultBook: Item
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
 	}
-	public override int days(){	return MAX;	}
-	public AdultBook():Item{}
+	public AdultBook():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
 
 //Dvd
@@ -67,8 +60,7 @@ class DVD: Item
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
 	}
-	public override int days(){	return MAX;	}
-	public DVD():Item{}
+	public DVD():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
 
 //Vhs
@@ -81,6 +73,5 @@ class VHS: Item
 		checkDate = DateTime.Now;
 		dueDate = checkDate.AddDays(MAX);
 	}
-	public override int days(){	return MAX;	}
-	public VHS():Item{}
+	public VHS():Item(string _title, bool check = false, string _who = "", DateTime _checkDate = DateTime.Now){}
 }
