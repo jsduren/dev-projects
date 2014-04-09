@@ -26,13 +26,12 @@ namespace LibraryProject
             return  items[selItem];
         }
 
-<<<<<<< HEAD
-=======
+
         //Brad
         //Brad Notes: 
         //   first and last in the patron class needs to be made public so I can access them.
         //   In the Adult and Child classes, there needs to be a reference to the array that holds that Objecs items.
->>>>>>> 33b4fc630b77850e2bce86f9cde63af5ecd8574a
+
 
         private void updatePatronInfo()
         {
@@ -83,15 +82,12 @@ namespace LibraryProject
             return patronItemCount;
         }
 
-<<<<<<< HEAD
-        
-=======
+
         //Brad
         //Notes:
         //  title needs to be made public so it can be accessed.
         //  I am unsure how to access the child class's data through an instance of the parent class
         //  status of the object (checked out or checked in) maybe should be in the Item class since all items will need it.
->>>>>>> 33b4fc630b77850e2bce86f9cde63af5ecd8574a
         private void updateItemInfo()
         {
             txtBItemTitle.Text = curItem.title;
