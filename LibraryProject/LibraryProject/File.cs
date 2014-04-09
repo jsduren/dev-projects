@@ -39,8 +39,11 @@ namespace LibraryProject
                 inputstring = data.ReadLine();
                 if (inputstring != "**")
                 {
-                    string category = inputstring;
-                    string title = data.ReadLine();
+                    string title = inputstring;
+                    string category = data.ReadLine();
+                    string whoCheckedout = data.ReadLine();
+                    int tempInt = int.Parse(data.ReadLine());
+                    bool checkStatus = (tempInt == 1) ? true : false;
                     
                     // read in checkedout date
                     DateTime checkedOut = DateTime.Parse(data.ReadLine());
@@ -48,26 +51,41 @@ namespace LibraryProject
                     //read in duedate
                     DateTime dueDate = DateTime.Parse(data.ReadLine());
                    
-                    // create a items object and push to list
+                    // create a items object and push
                     // need items constructor
-
+                    if (category == "AdultBook")
+                    {
+                        AdultBook temp = new AdultBook(title,checkStatus, checkedOut, dueDate);
+                        itemsList.Add(temp);
+                    }
+                    else if(category == "ChildBook")
+                    {
+                        ChildBook temp = new ChildBook(title, checkStatus, checkedOut, dueDate);
+                        itemsList.Add(temp);
+                    }
+                    else if (category == "DVD")
+                    {
+                        DVD temp = new DVD(title, checkStatus, checkedOut, dueDate);
+                        itemsList.Add(temp);
+                    }
+                    else if (category == "VHS")
+                    {
+                        VHS temp = new VHS(title, checkStatus, checkedOut, dueDate);
+                        itemsList.Add(temp);
+                    }
 
                     //read in next line to check if at end of items list
-
                     inputstring = data.ReadLine();
 
                 }
             } while (inputstring != null);
         }
 
-        public void saveFile(string filename)
+        public void saveFile()
         {
             // take each item and patron and save them to a file
 
             // path variable can be replaced with a savedialog
-            string enviromentPath = "C:\\Users\\Ikani\\Desktop\\";
-            string path = enviromentPath + filename + ".xml";
-            
             foreach(Item i in itemsList)
             {
 
