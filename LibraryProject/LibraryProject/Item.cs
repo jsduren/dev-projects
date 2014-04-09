@@ -9,12 +9,11 @@ class Item
 	private bool checkout = false;
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
-<<<<<<< HEAD
-=======
+
     public bool checkOutState; //Added this so I could test for current checkout state -Josh
 	//timestamp of check out date
 	//due date 
->>>>>>> 77e9b8e845508d301669bf3915cbfacd2c7758ea
+
 
 	public Item(string _title, bool check, string _who = "", DateTime _checkDate = DateTime.Now)
 	{
@@ -46,7 +45,8 @@ class ChildBook: Item
 	public override void checkout(){}
 	public override int days()
     {
-    }
+		return MAX;
+	}
 }
 
 //Adult Book
@@ -56,7 +56,8 @@ class AdultBook: Item
 	public override void checkout(){}
 	public override int days()
     {
-    }
+		return MAX;
+	}
 }
 
 //Dvd
@@ -66,7 +67,8 @@ class DVD: Item
 	public override void checkout(){}
 	public override int days()
     {
-    }
+		return MAX;
+	}
 }
 
 //Vhs
@@ -76,4 +78,5 @@ class VHS: Item
 	public override void checkout(){}
 	public override int days()
     {
-    }
+		return MAX;
+	}
