@@ -26,6 +26,7 @@ namespace LibraryProject
             return  items[selItem];
         }
 
+        //displays the selected patrons information in the text boxes
         private void updatePatronInfo()
         {
             txtBPatronName.Text = curPatron.displayName();
@@ -75,6 +76,7 @@ namespace LibraryProject
         //}
         
 
+        //displays the selected item's information in the text boxes
         private void updateItemInfo()
         {
             txtBItemTitle.Text = curItem.title;
@@ -86,7 +88,6 @@ namespace LibraryProject
             {
                 txtBItemStatus.Text = "Checked Out";
             }
-           
 
             //check type of item
             if (curItem is AdultBook)
