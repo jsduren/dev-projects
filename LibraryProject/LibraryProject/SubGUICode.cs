@@ -17,9 +17,9 @@ namespace LibraryProject
         private Item curItem;
 
         // Will return the correct type of object for what list the index was selected on
-        private Ref Object ListBoxIndexSelected(ListBox lstBox){
+        private Object ListBoxIndexSelected(ListBox lstBox){
             var listName = lstBox.Name.ToString();
-            var selItem = int.Parse(lstBox.SelectedIndex.ToString(CultureInfo.InvariantCulture));
+            var selItem = lstBox.SelectedIndex;
             if (listName == "lstPatrons"){
                 return patrons[selItem];
             }
@@ -28,58 +28,65 @@ namespace LibraryProject
 
         private void updatePatronInfo()
         {
-            txtBPatronName.Text = curPatron.first + " " + curPatron.last;
+            txtBPatronName.Text = curPatron.displayName();
 
             //check the type of the patron
             if (curPatron is Adult)
             {
                 txtBPatronType.Text = "Adult";
-                //Adult adult = (Adult)curPatron;
-                
-                txtBPatronItemsOut.Text = calculateNoItems(Adult.MAX_ITEMS, (Adult)curPatron).ToString();
+             
+                txtBPatronItemsOut.Text = curPatron.numberofItems.ToString();
             }
             else if (curPatron is Child)
             {
                 txtBPatronType.Text = "Child";
-                //Child child = (Child)curPatron;
-
-                txtBPatronItemsOut.Text = calculateNoItems(Child.MAX_ITEMS, (Child)curPatron).ToString();
+               
+                txtBPatronItemsOut.Text = curPatron.numberofItems.ToString();
             }
         }
 
+        //      THESE WERE BEING USED BEFORE THERE WAS A NUMBER OF ITEMS BEING HELD BY THE PATRON
         //calculates the number of items in the Adult AdultItems array
-        private int calculateNoItems(int maxItems, Adult theAdult)
-        {
-            int patronItemCount = 0;
-            for (int i = 0; i < maxItems; i++)
-            {
-                if (theAdult.adultArray[i] != null)
-                {
-                    patronItemCount++;
-                }
-            }
-            return patronItemCount;
-        }
+        //private int calculateNoItems(int maxItems, Adult theAdult)
+        //{
+        //    int patronItemCount = 0;
+        //    for (int i = 0; i < maxItems; i++)
+        //    {
+        //        if (theAdult.adultArray[i] != null)
+        //        {
+        //            patronItemCount++;
+        //        }
+        //    }
+        //    return patronItemCount;
+        //}
 
         //calculates the number of items in the Child ChildBooks array
-        private int calculateNoItems(int maxItems, Child theChild)
-        {
-            int patronItemCount = 0;
-            for (int i = 0; i < maxItems; i++)
-            {
-                if (theChild.childArray[i] != null)
-                {
-                    patronItemCount++;
-                }
-            }
-            return patronItemCount;
-        }
+        //private int calculateNoItems(int maxItems, Child theChild)
+        //{
+        //    int patronItemCount = 0;
+        //    for (int i = 0; i < maxItems; i++)
+        //    {
+        //        if (theChild.childArray[i] != null)
+        //        {
+        //            patronItemCount++;
+        //        }
+        //    }
+        //    return patronItemCount;
+        //}
         
 
         private void updateItemInfo()
         {
             txtBItemTitle.Text = curItem.title;
-            txtBItemStatus.Text = curItem.status;
+            if (curItem.checkedout == false)
+            {
+                txtBItemStatus.Text = "Checked In";
+            }
+            else
+            {
+                txtBItemStatus.Text = "Checked Out";
+            }
+           
 
             //check type of item
             if (curItem is AdultBook)
@@ -108,8 +115,6 @@ namespace LibraryProject
                 txtBItemCheckoutLen.Text = "3 days";
                 dateDue.Value = curItem.dueDate;
             }
-
-           
         }
 
         private void updateItemsCheckOut()
@@ -117,10 +122,12 @@ namespace LibraryProject
             lstItemsCheckedOut = checkedOut;
         }
 
-        private void updateItemsLibrary(){
+        private void updateItemsLibrary()
+        {
             lstItemsLibrary = items;
         }
 
+        //Josh is this still necessary? -Brad
         private void updateOverdueItems()
         {
             foreach (var item in lstItemsCheckedOut)

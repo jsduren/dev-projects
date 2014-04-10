@@ -60,13 +60,13 @@ namespace LibraryProject
         //when the list of library items is clicked 
         private void lstItemsLibrary_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedIndexChanged(lstItemsLibrary);
+            SelectedIndexChanged(lstItemsLibrary);
         }
 
         //when the list that contains the patrons is clicked
         private void lstPatrons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedIndexChanged(lstPatrons);
+            SelectedIndexChanged(lstPatrons);
         }
 
         //Listener for when the advance time button is clicked
@@ -78,7 +78,7 @@ namespace LibraryProject
         //when the list that contains the checked out items is clicked
         private void lstItemsCheckedOut_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedIndexChanged(lstItemsCheckedOut);
+            SelectedIndexChanged(lstItemsCheckedOut);
         }
 
         private void LibraryForm_Load(object sender, EventArgs e)

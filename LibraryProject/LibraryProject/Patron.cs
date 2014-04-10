@@ -26,14 +26,14 @@ public class Patron
 
     //I added the void return type to be able to compile. Change as needed -Brad
     // Completed the virtual class to be able to compile program. -Josh
-    public virtual void checkout()
+    public virtual void checkout(ref Item current)
     {
         throw new System.NotImplementedException();
     }
 
     //I added the void return type to be able to compile. Change as needed -Brad
     // Completed the virtual class to be able to compile program. -Josh
-    public virtual void checkin()
+    public virtual void checkin(ref Item current)
     {
         throw new System.NotImplementedException();
     }
@@ -52,14 +52,14 @@ public class Child : Patron
     public override bool checkout(ref Item current) //pass an item as a ref and return a bool 
     {
         //checks the type
-		if(Item is ChildBook || numberofItems == MAX)
+		if(current is ChildBook || numberofItems == MAX)
 		{
 			return false;
 		}
 		//if ok call check out of item
 		else 
 		{
-			current.checkout(this.displayname());
+			current.checkout(this.displayName());
 			++numberofItems;
 			return true;
 		}
@@ -92,7 +92,7 @@ class Adult : Patron
 		//if ok call check out of item
 		else 
 		{
-			current.checkout(this.displayname());
+			current.checkout(this.displayName());
 			++numberofItems;
 			return true;
 		}
