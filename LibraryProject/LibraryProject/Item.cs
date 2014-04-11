@@ -27,6 +27,10 @@ public class Item
 		checkedout = false;
 	}
 	public bool isCheckedOut(){ return checkedout; }
+    public virtual int maxDays()
+    {
+        return 0;
+    }
 }
 
 //child Book
@@ -41,6 +45,11 @@ class ChildBook: Item
 		checkedout = true;
 	}
 	public ChildBook(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
+
+    public override int maxDays()
+    {
+        return MAX;
+    }
 }
 
 //Adult Book
@@ -55,6 +64,11 @@ class AdultBook: Item
 		checkedout = true;
 	}
 	public AdultBook(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
+
+    public override int maxDays()
+    {
+        return MAX;
+    }
 }
 
 //Dvd
@@ -69,6 +83,11 @@ class DVD: Item
 		checkedout = true;
 	}
 	public DVD(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
+
+    public override int maxDays()
+    {
+        return MAX;
+    }
 }
 
 //Vhs
@@ -83,4 +102,9 @@ class VHS: Item
 		checkedout = true;
 	}
 	public VHS(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
+
+    public override int maxDays()
+    {
+        return MAX;
+    }
 }
