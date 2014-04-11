@@ -332,8 +332,10 @@ namespace LibraryProject
         private void btnAdvancedDayClicked()
         {
             //Increment the date by one
-            dateToday.Value = curDateTime.AddDays(1);
-            int day365 = curDateTime.DayOfYear;
+            curDateTime = curDateTime.AddDays(1);
+            var today = curDateTime;
+            dateToday.Value = today;
+            int day365 = today.DayOfYear;
             updateOverdueItems(day365);
         }
     }
