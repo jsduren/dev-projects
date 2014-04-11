@@ -76,7 +76,17 @@ namespace LibraryProject
 
         private void patronInitilizerTest()
         {
-            
+            for (int i = 0; i < 10; i++)
+            {
+               if (i % 2 == 0)
+               {
+                   patrons.Add(new Adult("Patron" + i, "Last" + i, 0));
+               }
+               else
+               {
+                   patrons.Add(new Child("Child" + i, "Last" + i, 0));
+               }
+            }
         }
 
         private void openFile()
