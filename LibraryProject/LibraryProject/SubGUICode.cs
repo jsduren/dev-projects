@@ -14,6 +14,7 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
+        public static DateTime curDateTime;
         private int curPatronIndex;
         private int curItemIndex;
 
@@ -128,29 +129,39 @@ namespace LibraryProject
             if (inputItem is AdultBook)
             {
                 txtBItemType.Text = "Adult Book";
-                txtBItemCheckoutLen.Text = "2 Weeks";
-                dateDue.Value = inputItem.dueDate;
-              
             }
             else if (inputItem is ChildBook)
             {
                 txtBItemType.Text = "Child Book";
-                txtBItemCheckoutLen.Text = "1 Week";
-                dateDue.Value = inputItem.dueDate;
-              
             }
             else if (inputItem is DVD)
             {
                 txtBItemType.Text = "DVD";
-                txtBItemCheckoutLen.Text = "2 days";
-                dateDue.Value = inputItem.dueDate;
             }
             else if (inputItem is VHS)
             {
                 txtBItemType.Text = "VHS";
-                txtBItemCheckoutLen.Text = "3 days";
-                dateDue.Value = inputItem.dueDate;
             }
+           
+           if (inputItem.maxDays() % 7 == 0)
+           {
+               txtBItemCheckoutLen.Text = (inputItem.maxDays() / 7) + " weeks";
+           }
+           else
+           {
+               txtBItemCheckoutLen.Text = inputItem.maxDays() + " days";
+           }
+
+           if (inputItem.checkedout)
+           {
+               dateDue.Value = inputItem.dueDate;
+           }
+           else
+           {
+               DateTime tempdate = dateToday.Value;
+               tempdate.AddDays(inputItem.maxDays());
+               dateDue.Value = tempdate;
+           }
         }
 
         private void updatePatrons()
@@ -180,6 +191,10 @@ namespace LibraryProject
                     checkedOut.Add(x);
                     lstItemsCheckedOut.Items.Add(x.title + "\t" + x.dueDate);
                 }
+            }
+            if (checkedOut.Count == 0)
+            {
+                btnCheckIn.Enabled = false;
             }
         }
 
@@ -263,12 +278,18 @@ namespace LibraryProject
             updateItemInfo(checkedOut[curItemIndex]);
         }
 
+        private void updateNumberPatronItems()
+        {
+            txtBPatronItemsOut.Text = patrons[curPatronIndex].numberofItems.ToString();
+        }
+
         private void btnCheckOutClicked()
         {
             //pass the Item that is being checked out to the Patron class
             Item tempItem = items[curItemIndex];
             if (patrons[curPatronIndex].checkout(ref tempItem)) //curItem is a Item object -- If checkout is Successful
             {
+                updateNumberPatronItems();
                 updateItemsCheckOut();
                 updateItemsLibrary();
             }
@@ -289,6 +310,7 @@ namespace LibraryProject
             Item tempItem = checkedOut[curItemIndex];
             patrons[curPatronIndex].checkin(ref tempItem); //curItem is a Item object
             updateItemInLibrary(tempItem);
+            updateNumberPatronItems();
             updateItemsCheckOut();
             updateItemsLibrary();
             updateOverdueItems(dateToday.Value.DayOfYear);
@@ -310,8 +332,8 @@ namespace LibraryProject
         private void btnAdvancedDayClicked()
         {
             //Increment the date by one
-            var today = dateToday.Value.AddDays(1);
-            int day365 = today.DayOfYear;
+            dateToday.Value = curDateTime.AddDays(1);
+            int day365 = curDateTime.DayOfYear;
             updateOverdueItems(day365);
         }
     }
