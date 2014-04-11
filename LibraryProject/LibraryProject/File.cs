@@ -11,11 +11,11 @@ namespace LibraryProject
 {
     static class File
     {
-        public List<Item> itemsList;
-        public List<Patron> patronsList;
+        public static List<Item> itemsList;
+        public static List<Patron> patronsList;
 
 
-        public void readFile()
+        public static void readFile()
         {
             string inputstring = null;
             StreamReader data = null;
@@ -55,22 +55,22 @@ namespace LibraryProject
                     // need items constructor
                     if (category == "AdultBook")
                     {
-                        AdultBook temp = new AdultBook(title,checkStatus, checkedOut, dueDate);
+                        AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if(category == "ChildBook")
                     {
-                        ChildBook temp = new ChildBook(title, checkStatus, checkedOut, dueDate);
+                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if (category == "DVD")
                     {
-                        DVD temp = new DVD(title, checkStatus, checkedOut, dueDate);
+                        DVD temp = new DVD(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if (category == "VHS")
                     {
-                        VHS temp = new VHS(title, checkStatus, checkedOut, dueDate);
+                        VHS temp = new VHS(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
 
@@ -81,7 +81,7 @@ namespace LibraryProject
             } while (inputstring != null);
         }
 
-        public void saveFile()
+        public static void saveFile()
         {
             // take each item and patron and save them to a file
 
