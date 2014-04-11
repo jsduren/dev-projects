@@ -40,7 +40,7 @@ class ChildBook: Item
 	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
-		checkDate = DateTime.Now;
+		checkDate = LibraryProject.LibraryForm.curDateTime;
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
@@ -59,7 +59,7 @@ class AdultBook: Item
 	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
-		checkDate = DateTime.Now;
+        checkDate = LibraryProject.LibraryForm.curDateTime;
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
@@ -78,7 +78,7 @@ class DVD: Item
 	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
-		checkDate = DateTime.Now;
+        checkDate = LibraryProject.LibraryForm.curDateTime;
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
@@ -97,7 +97,7 @@ class VHS: Item
 	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
-		checkDate = DateTime.Now;
+        checkDate = LibraryProject.LibraryForm.curDateTime;
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
