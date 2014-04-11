@@ -91,6 +91,8 @@ namespace LibraryProject
 
         private void openFile()
         {
+            itemsInitilizerTest();
+            patronInitilizerTest();
             /*File.readFile();
             items.Clear();
             items = File.itemsList;
@@ -158,11 +160,11 @@ namespace LibraryProject
             {
                 if (perPatron is Child)
                 {
-                    lstItemsLibrary.Items.Add(perPatron.displayName() + "\tChild");
+                    lstPatrons.Items.Add(perPatron.displayName() + "\tChild");
                 }
                 else
                 {
-                    lstItemsLibrary.Items.Add(perPatron.displayName() + "\tAdult");
+                    lstPatrons.Items.Add(perPatron.displayName() + "\tAdult");
                 }
             }
         }
@@ -188,11 +190,11 @@ namespace LibraryProject
             {
                 if (x.checkedout)
                 {
-                    lstItemsLibrary.Items.Add("X\t" + x.title);
+                    lstItemsLibrary.Items.Add("X " + x.title + "\t" + x.GetType());
                 }
                 else
                 {
-                    lstItemsLibrary.Items.Add("\t" + x.title);
+                    lstItemsLibrary.Items.Add("  " + x.title + "\t" + x.GetType());
                 }
             }
         }
@@ -220,7 +222,7 @@ namespace LibraryProject
             else if (listName == "lstItemsCheckedOut"){
                 itemCheckOutSelected(lstBox);
             }
-            else if (listName == "listPatrons"){
+            else if (listName == "lstPatrons"){
                 patronSelected(lstBox);
             }
         }
@@ -264,10 +266,9 @@ namespace LibraryProject
         private void btnCheckOutClicked()
         {
             //pass the Item that is being checked out to the Patron class
-            Item tempItem = checkedOut[curItemIndex];
+            Item tempItem = items[curItemIndex];
             if (patrons[curPatronIndex].checkout(ref tempItem)) //curItem is a Item object -- If checkout is Successful
             {
-                updateItemInLibrary(tempItem);
                 updateItemsCheckOut();
                 updateItemsLibrary();
             }
