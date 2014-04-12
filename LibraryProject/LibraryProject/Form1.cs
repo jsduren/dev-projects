@@ -83,6 +83,8 @@ namespace LibraryProject
         private void LibraryForm_Load(object sender, EventArgs e)
         {
             curDateTime = dateToday.Value;
+            btnCheckIn.Enabled = false;
+            btnCheckOut.Enabled = false;
         }
 
     }

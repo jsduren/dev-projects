@@ -59,18 +59,17 @@ public class Child : Patron
 		//if ok call check out of item
 		else 
 		{
-			current.checkout(this.displayName());
-			++numberofItems;
-			return true;
-		}
-		
+            current.checkout(this.displayName());
+            ++numberofItems;
+            return true;
+		}	
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();
 		--numberofItems; 
     }
-
 }
 
 //Adult class
@@ -96,8 +95,8 @@ class Adult : Patron
 			++numberofItems;
 			return true;
 		}
-		
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();

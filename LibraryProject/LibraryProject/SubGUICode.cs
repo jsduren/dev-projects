@@ -205,17 +205,16 @@ namespace LibraryProject
             {
                 if (x.checkedout)
                 {
-                    lstItemsLibrary.Items.Add("X " + x.title + "\t" + x.GetType());
+                    lstItemsLibrary.Items.Add("X\t" + x.title + "\t" + x.GetType());
                 }
                 else
                 {
-                    lstItemsLibrary.Items.Add("  " + x.title + "\t" + x.GetType());
+                    lstItemsLibrary.Items.Add(" \t" + x.title + "\t" + x.GetType());
                 }
             }
         }
 
-        //Josh is this still necessary? -Brad
-        private void updateOverdueItems(int daysOfYear )
+        private void updateOverdueItems(int daysOfYear)
         {
             
             lstItemsOverdue.Items.Clear();
@@ -223,7 +222,7 @@ namespace LibraryProject
             {
                 if ((x.dueDate.DayOfYear - daysOfYear) < 0)
                 {
-                    lstItemsOverdue.Items.Add(x.title + "\t" + (x.dueDate.DayOfYear - daysOfYear));
+                    lstItemsOverdue.Items.Add((daysOfYear - x.dueDate.DayOfYear) + "\t" + x.title);
                 }
             }
         }
