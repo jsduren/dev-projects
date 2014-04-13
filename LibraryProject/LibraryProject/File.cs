@@ -14,6 +14,7 @@ namespace LibraryProject
         public static List<Item> itemsList;
         public static List<Patron> patronsList;
 
+        // Assumed C# will create default constructor and destructor
 
         public static void readFile()
         {
@@ -60,12 +61,8 @@ namespace LibraryProject
                     }
                     else if(category == "ChildBook")
                     {
-<<<<<<< HEAD
                         ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
-=======
-                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout, checkedOut, dueDate);
->>>>>>> a13a210213c25701567f95f79a8da7979a833b9b
-                        itemsList.Add(temp);
+
                     }
                     else if (category == "DVD")
                     {
@@ -82,38 +79,61 @@ namespace LibraryProject
                     inputstring = data.ReadLine();
 
                 }
-            } while (inputstring != null);
+            } while (inputstring != "**");
+            while (inputstring != "***")
+            {
+                string fname = data.ReadLine();
+                string lname = data.ReadLine();
+                string category = data.ReadLine();
+                int numItems = int.Parse(data.ReadLine());
+
+                if (category == "Adult")
+                {
+                    Adult temp = new Adult(fname, lname, numItems);
+                    patronsList.Add(temp);
+                }
+                else
+                {
+                    Child temp = new Child(fname, lname, numItems);
+                    patronsList.Add(temp);
+                }
+            }
+
         }
 
         public static void saveFile()
         {
-            Stream myStream ;
+            //Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"  ;
             saveFileDialog1.FilterIndex = 2 ;
             saveFileDialog1.RestoreDirectory = true ;
 
-            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
+                 // Code to write the stream goes here.
+                foreach (Item i in itemsList)
                 {
-                    // Code to write the stream goes here.
-                    myStream.Close();
+
                 }
+                writer.WriteLine("**"); // signals end of items list
+                foreach (Patron i in patronsList)
+                {
+                    string fullname = i.displayName();
+                    string[] splitNames = fullname.Split();
+                    string numItems = i.numberofItems.ToString();
+                    //write first name
+                    writer.WriteLine(splitNames[0]);
+                    // write last name
+                    writer.WriteLine(splitNames[1]);
+                    writer.WriteLine(numItems);
+                 }
+                writer.WriteLine("***"); // signals end of patrons list
+
+                    writer.Close();
             }
-
-
-            foreach(Item i in itemsList)
-            {
-
-            }
-
-            foreach(Patron i in patronsList)
-            {
-
-            }
-
      
 
         }
