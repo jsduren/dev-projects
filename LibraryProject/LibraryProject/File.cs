@@ -11,11 +11,11 @@ namespace LibraryProject
 {
     static class File
     {
-        public List<Item> itemsList;
-        public List<Patron> patronsList;
+        public static List<Item> itemsList;
+        public static List<Patron> patronsList;
 
 
-        public void readFile()
+        public static void readFile()
         {
             string inputstring = null;
             StreamReader data = null;
@@ -60,7 +60,11 @@ namespace LibraryProject
                     }
                     else if(category == "ChildBook")
                     {
+<<<<<<< HEAD
                         ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
+=======
+                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout, checkedOut, dueDate);
+>>>>>>> a13a210213c25701567f95f79a8da7979a833b9b
                         itemsList.Add(temp);
                     }
                     else if (category == "DVD")
@@ -81,7 +85,7 @@ namespace LibraryProject
             } while (inputstring != null);
         }
 
-        public void saveFile()
+        public static void saveFile()
         {
             Stream myStream ;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();

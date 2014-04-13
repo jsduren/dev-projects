@@ -26,7 +26,7 @@ public class Patron
 
     //I added the void return type to be able to compile. Change as needed -Brad
     // Completed the virtual class to be able to compile program. -Josh
-    public virtual void checkout(ref Item current)
+    public virtual bool checkout(ref Item current)
     {
         throw new System.NotImplementedException();
     }
@@ -42,7 +42,7 @@ public class Patron
 //Child class
 public class Child : Patron
 {
-	private static const int MAX = 3;	
+	private const int MAX = 3;	
 	public Child(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
 	{
 	
@@ -59,24 +59,23 @@ public class Child : Patron
 		//if ok call check out of item
 		else 
 		{
-			current.checkout(this.displayName());
-			++numberofItems;
-			return true;
-		}
-		
+            current.checkout(this.displayName());
+            ++numberofItems;
+            return true;
+		}	
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();
 		--numberofItems; 
     }
-
 }
 
 //Adult class
 class Adult : Patron
 {
-	private static const int MAX = 6;
+	private const int MAX = 6;
 	public Adult(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
 	{
 	
@@ -96,8 +95,8 @@ class Adult : Patron
 			++numberofItems;
 			return true;
 		}
-		
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();

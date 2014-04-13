@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,74 +14,109 @@ namespace LibraryProject
 {
     public partial class LibraryForm : Form
     {
-        private Patron curPatron;
-        private Item curItem;
+        public static DateTime curDateTime;
+        private int curPatronIndex;
+        private int curItemIndex;
 
         // Will return the correct type of object for what list the index was selected on
-        private Object ListBoxIndexSelected(ListBox lstBox){
+        private int ListBoxIndexSelected(ListBox lstBox){
             var listName = lstBox.Name.ToString();
             var selItem = lstBox.SelectedIndex;
             if (listName == "lstPatrons"){
-                return patrons[selItem];
+                return selItem;
             }
-            return  items[selItem];
+            return  selItem;
         }
 
         //displays the selected patrons information in the text boxes
         private void updatePatronInfo()
         {
-            txtBPatronName.Text = curPatron.displayName();
+            txtBPatronName.Text = patrons[curPatronIndex].displayName();
 
             //check the type of the patron
-            if (curPatron is Adult)
+            if (patrons[curPatronIndex] is Adult)
             {
                 txtBPatronType.Text = "Adult";
-             
-                txtBPatronItemsOut.Text = curPatron.numberofItems.ToString();
+
+                txtBPatronItemsOut.Text = patrons[curPatronIndex].numberofItems.ToString();
             }
-            else if (curPatron is Child)
+            else if (patrons[curPatronIndex] is Child)
             {
                 txtBPatronType.Text = "Child";
-               
-                txtBPatronItemsOut.Text = curPatron.numberofItems.ToString();
+
+                txtBPatronItemsOut.Text = patrons[curPatronIndex].numberofItems.ToString();
             }
         }
 
-        //      THESE WERE BEING USED BEFORE THERE WAS A NUMBER OF ITEMS BEING HELD BY THE PATRON
-        //calculates the number of items in the Adult AdultItems array
-        //private int calculateNoItems(int maxItems, Adult theAdult)
-        //{
-        //    int patronItemCount = 0;
-        //    for (int i = 0; i < maxItems; i++)
-        //    {
-        //        if (theAdult.adultArray[i] != null)
-        //        {
-        //            patronItemCount++;
-        //        }
-        //    }
-        //    return patronItemCount;
-        //}
+        private void itemsInitilizerTest()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (j == 0)
+                    {
+                        items.Add(new AdultBook(("Item" + i + j), false, "", new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day), new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day)));
+                    }
+                    else if (j == 1)
+                    {
+                        items.Add(new ChildBook(("Item" + i + j), false, "", new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day), new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day)));
+                    }
+                    else if (j == 2)
+                    {
+                        items.Add(new DVD(("Item" + i + j), false, "", new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day), new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day)));
+                    }
+                    else if (j == 3)
+                    {
+                        items.Add(new VHS(("Item" + i + j), false, "", new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day), new DateTime(dateToday.Value.Year, dateToday.Value.Month, dateToday.Value.Day)));
+                    }
+                }
+                
+            }
+        }
 
-        //calculates the number of items in the Child ChildBooks array
-        //private int calculateNoItems(int maxItems, Child theChild)
-        //{
-        //    int patronItemCount = 0;
-        //    for (int i = 0; i < maxItems; i++)
-        //    {
-        //        if (theChild.childArray[i] != null)
-        //        {
-        //            patronItemCount++;
-        //        }
-        //    }
-        //    return patronItemCount;
-        //}
-        
+        private void patronInitilizerTest()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+               if (i % 2 == 0)
+               {
+                   patrons.Add(new Adult("Patron" + i, "Last" + i, 0));
+               }
+               else
+               {
+                   patrons.Add(new Child("Child" + i, "Last" + i, 0));
+               }
+            }
+        }
+
+        private void openFile()
+        {
+            itemsInitilizerTest();
+            patronInitilizerTest();
+            /*File.readFile();
+            items.Clear();
+            items = File.itemsList;
+            patrons.Clear();
+            patrons = File.patronsList;*/
+            updatePatrons();
+            updateItemsLibrary();
+        }
+
+        private void closeFile()
+        {
+            File.itemsList.Clear();
+            File.itemsList = items;
+            File.patronsList.Clear();
+            File.patronsList = patrons;
+            File.saveFile();
+        }
 
         //displays the selected item's information in the text boxes
-        private void updateItemInfo()
+        private void updateItemInfo(Item inputItem)
         {
-            txtBItemTitle.Text = curItem.title;
-            if (curItem.checkedout == false)
+            txtBItemTitle.Text = inputItem.title;
+            if (inputItem.checkedout == false)
             {
                 txtBItemStatus.Text = "Checked In";
             }
@@ -90,56 +126,105 @@ namespace LibraryProject
             }
 
             //check type of item
-            if (curItem is AdultBook)
+            if (inputItem is AdultBook)
             {
                 txtBItemType.Text = "Adult Book";
-                txtBItemCheckoutLen.Text = "2 Weeks";
-                dateDue.Value = curItem.dueDate;
-              
             }
-            else if (curItem is ChildBook)
+            else if (inputItem is ChildBook)
             {
                 txtBItemType.Text = "Child Book";
-                txtBItemCheckoutLen.Text = "1 Week";
-                dateDue.Value = curItem.dueDate;
-              
             }
-            else if (curItem is DVD)
+            else if (inputItem is DVD)
             {
                 txtBItemType.Text = "DVD";
-                txtBItemCheckoutLen.Text = "2 days";
-                dateDue.Value = curItem.dueDate;
             }
-            else if (curItem is VHS)
+            else if (inputItem is VHS)
             {
                 txtBItemType.Text = "VHS";
-                txtBItemCheckoutLen.Text = "3 days";
-                dateDue.Value = curItem.dueDate;
+            }
+           
+           if (inputItem.maxDays() % 7 == 0)
+           {
+               txtBItemCheckoutLen.Text = (inputItem.maxDays() / 7) + " weeks";
+           }
+           else
+           {
+               txtBItemCheckoutLen.Text = inputItem.maxDays() + " days";
+           }
+
+           if (inputItem.checkedout)
+           {
+               dateDue.Value = inputItem.dueDate;
+           }
+           else
+           {
+               DateTime tempdate = dateToday.Value;
+               tempdate.AddDays(inputItem.maxDays());
+               dateDue.Value = tempdate;
+           }
+        }
+
+        private void updatePatrons()
+        {
+            lstPatrons.Items.Clear();
+            foreach (Patron perPatron in patrons)
+            {
+                if (perPatron is Child)
+                {
+                    lstPatrons.Items.Add(perPatron.displayName() + "\tChild");
+                }
+                else
+                {
+                    lstPatrons.Items.Add(perPatron.displayName() + "\tAdult");
+                }
             }
         }
 
         private void updateItemsCheckOut()
         {
-            lstItemsCheckedOut = checkedOut;
+            lstItemsCheckedOut.Items.Clear();
+            checkedOut.Clear();
+            foreach (Item x in items)
+            {
+                if (x.checkedout && x.whoCheckedOut == patrons[curPatronIndex].displayName())
+                {
+                    checkedOut.Add(x);
+                    lstItemsCheckedOut.Items.Add(x.title + "\t" + x.dueDate);
+                }
+            }
+            if (checkedOut.Count == 0)
+            {
+                btnCheckIn.Enabled = false;
+            }
         }
 
         private void updateItemsLibrary()
         {
-            lstItemsLibrary = items;
+            lstItemsLibrary.Items.Clear();
+            foreach (Item x in items)
+            {
+                if (x.checkedout)
+                {
+                    lstItemsLibrary.Items.Add("X\t" + x.title + "\t" + x.GetType());
+                }
+                else
+                {
+                    lstItemsLibrary.Items.Add(" \t" + x.title + "\t" + x.GetType());
+                }
+            }
         }
 
-        //Josh is this still necessary? -Brad
-        private void updateOverdueItems()
+        private void updateOverdueItems(int daysOfYear)
         {
-            foreach (var item in lstItemsCheckedOut)
-            {
-                if (item.dueDate > dateToday.Value)
-                {
-                    
-                }
-                //lstItemsOverdue. item;
-            }
             
+            lstItemsOverdue.Items.Clear();
+            foreach (Item x in checkedOut)
+            {
+                if ((x.dueDate.DayOfYear - daysOfYear) < 0)
+                {
+                    lstItemsOverdue.Items.Add((daysOfYear - x.dueDate.DayOfYear) + "\t" + x.title);
+                }
+            }
         }
 
         private void SelectedIndexChanged(ListBox lstBox){
@@ -151,22 +236,24 @@ namespace LibraryProject
             else if (listName == "lstItemsCheckedOut"){
                 itemCheckOutSelected(lstBox);
             }
-            else if (listName == "listPatrons"){
+            else if (listName == "lstPatrons"){
                 patronSelected(lstBox);
             }
         }
 
         private void patronSelected(ListBox lstBox)
         {
-            curPatron = (Patron)ListBoxIndexSelected(lstBox);
+            curPatronIndex = ListBoxIndexSelected(lstBox);
             updatePatronInfo();
+            updateItemsCheckOut();
+            updateOverdueItems(dateToday.Value.DayOfYear);
         }
 
         // Selecting an item that will be(if not already) checked out
         private void itemLibrarySelected(ListBox lstBox){
-            curItem = (Item)ListBoxIndexSelected(lstBox);
+            curItemIndex = ListBoxIndexSelected(lstBox);
             btnCheckIn.Enabled = false;
-            if (!curItem.checkedout)
+            if (!items[curItemIndex].checkedout)
             {
                 btnCheckOut.Enabled = true;
             }
@@ -174,54 +261,81 @@ namespace LibraryProject
             {
                 btnCheckOut.Enabled = false;
             }
-            updateItemInfo();
+            updateItemInfo(items[curItemIndex]);
         }
 
         // Selecting an item that can be checked in (that is alreayd check out)
         private void itemCheckOutSelected(ListBox lstBox){
-            curItem = (Item)ListBoxIndexSelected(lstBox);
+            curItemIndex = ListBoxIndexSelected(lstBox);
             btnCheckOut.Enabled = false;
-            if (curItem.checkedout){
+            if (checkedOut[curItemIndex].checkedout){
                 btnCheckIn.Enabled = true;
             }
             else{
                 btnCheckIn.Enabled = false;
             }
-            updateItemInfo();
+            updateItemInfo(checkedOut[curItemIndex]);
+        }
+
+        private void updateNumberPatronItems()
+        {
+            txtBPatronItemsOut.Text = patrons[curPatronIndex].numberofItems.ToString();
         }
 
         private void btnCheckOutClicked()
         {
             //pass the Item that is being checked out to the Patron class
-            curItem.checkout(curPatron.displayName());
-            curPatron.checkout(ref curItem); //curItem is a Item object
-            updateItemsCheckOut();
-            updateItemsLibrary();
-
+            Item tempItem = items[curItemIndex];
+            if (patrons[curPatronIndex].checkout(ref tempItem)) //curItem is a Item object -- If checkout is Successful
+            {
+                updateNumberPatronItems();
+                updateItemsCheckOut();
+                updateItemsLibrary();
+            }
+            else
+            {
+                MessageBox.Show(text: "You are unable to checkout the current item.", 
+                    caption: "Checkout Failed", 
+                    buttons: MessageBoxButtons.OK, 
+                    icon: MessageBoxIcon.Error);
+            }
+             
+            
         }
 
         private void btnCheckInClicked()
         {
-            curItem.checkin();
-            curPatron.checkin(ref curItem); //curItem is a Item object
+            checkedOut[curItemIndex].checkin();
+            Item tempItem = checkedOut[curItemIndex];
+            patrons[curPatronIndex].checkin(ref tempItem); //curItem is a Item object
+            updateItemInLibrary(tempItem);
+            updateNumberPatronItems();
             updateItemsCheckOut();
             updateItemsLibrary();
+            updateOverdueItems(dateToday.Value.DayOfYear);
+        }
+
+        private void updateItemInLibrary(Item inputItem)
+        {
+            for (int i = 0; i < items.Count; i++)
+            {
+                if (items[i].title == inputItem.title)
+                {
+                    items[i] = inputItem;
+                    i = items.Count;
+                }
+            }
         }
 
         //Code for when the button to advance the date is clicked
         private void btnAdvancedDayClicked()
         {
             //Increment the date by one
-            var today = dateToday.Value.AddDays(1);
+            curDateTime = curDateTime.AddDays(1);
+            var today = curDateTime;
+            dateToday.Value = today;
             int day365 = today.DayOfYear;
-            lstItemsOverdue.Items.Clear();
-            foreach (Item x in checkedOut)
-            {
-                if ((x.dueDate.DayOfYear - day365) < 0)
-                {
-                    lstItemsOverdue.Items.Add(x);
-                }
-            }
+            updateOverdueItems(day365);
         }
     }
 }
