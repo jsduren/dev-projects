@@ -55,22 +55,22 @@ namespace LibraryProject
                     // need items constructor
                     if (category == "AdultBook")
                     {
-                        AdultBook temp = new AdultBook(title,checkStatus, checkedOut, dueDate);
+                        AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if(category == "ChildBook")
                     {
-                        ChildBook temp = new ChildBook(title, checkStatus, checkedOut, dueDate);
+                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if (category == "DVD")
                     {
-                        DVD temp = new DVD(title, checkStatus, checkedOut, dueDate);
+                        DVD temp = new DVD(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if (category == "VHS")
                     {
-                        VHS temp = new VHS(title, checkStatus, checkedOut, dueDate);
+                        VHS temp = new VHS(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
 
@@ -83,9 +83,23 @@ namespace LibraryProject
 
         public void saveFile()
         {
-            // take each item and patron and save them to a file
+            Stream myStream ;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            // path variable can be replaced with a savedialog
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"  ;
+            saveFileDialog1.FilterIndex = 2 ;
+            saveFileDialog1.RestoreDirectory = true ;
+
+            if(saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                if ((myStream = saveFileDialog1.OpenFile()) != null)
+                {
+                    // Code to write the stream goes here.
+                    myStream.Close();
+                }
+            }
+
+
             foreach(Item i in itemsList)
             {
 
