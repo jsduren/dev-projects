@@ -52,16 +52,21 @@ public class Child : Patron
     public override bool checkout(ref Item current) //pass an item as a ref and return a bool 
     {
         //checks the type
-		if(Item is ChildBook || numberofItems == MAX)
-		{
-			return false;
-		}
-		//if ok call check out of item
-		else 
+		if(Item is ChildBook && numberofItems < MAX)//**************************Fix!!!!!!!!!!!!!!!!!!1
 		{
 			current.checkout(this.displayname());
 			++numberofItems;
 			return true;
+		}
+		//if ok call check out of item
+		else if(numberofItems == MAX)
+		{
+			return false; 
+		}
+		else 
+		{
+			throw new System.ArgumentException("Item is not a child book...", "current");
+			return false;
 		}
 		
     }
@@ -87,6 +92,7 @@ class Adult : Patron
         //checks the type
 		if(numberofItems == MAX)
 		{
+			throw new System.ArgumentException("Patron has max # of checked out items...", "current");
 			return false;
 		}
 		//if ok call check out of item
