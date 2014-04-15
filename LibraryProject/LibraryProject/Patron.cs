@@ -53,6 +53,7 @@ public class Child : Patron
     {
         //checks the type
 
+<<<<<<< HEAD
         if (current is ChildBook && numberofItems < MAX)
 
             if (current is ChildBook || numberofItems == MAX)
@@ -68,6 +69,29 @@ public class Child : Patron
             }
             else
             {
+=======
+		if(current is ChildBook && numberofItems < MAX)//**************************Fix!!!!!!!!!!!!!!!!!!1
+		{
+			current.checkout(this.displayName());
+			++numberofItems;
+			return true;
+		}
+		//if ok call check out of item
+		else if(numberofItems == MAX)
+		{
+			return false; 
+		}
+		else 
+		{
+			throw new System.ArgumentException("Item is not a child book...", "current");
+			return false;
+		}
+
+            current.checkout(this.displayName());
+            ++numberofItems;
+            return true;
+		}	
+>>>>>>> 3a949f2106e1856abdb586a221d37641498fbbac
 
                 throw new System.ArgumentException("Item is not a child book...", "current");
                 return false;

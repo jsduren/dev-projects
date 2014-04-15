@@ -62,6 +62,7 @@ namespace LibraryProject
                     else if(category == "ChildBook")
                     {
                         ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
+                        itemsList.Add(temp);
 
                     }
                     else if (category == "DVD")
