@@ -284,22 +284,28 @@ namespace LibraryProject
 
         private void btnCheckOutClicked()
         {
-            //pass the Item that is being checked out to the Patron class
-            Item tempItem = items[curItemIndex];
-            if (patrons[curPatronIndex].checkout(ref tempItem)) //curItem is a Item object -- If checkout is Successful
+            try
             {
-                updateNumberPatronItems();
-                updateItemsCheckOut();
-                updateItemsLibrary();
+                //pass the Item that is being checked out to the Patron class
+                Item tempItem = items[curItemIndex];
+                if (patrons[curPatronIndex].checkout(ref tempItem)) //curItem is a Item object -- If checkout is Successful
+                {
+                    updateNumberPatronItems();
+                    updateItemsCheckOut();
+                    updateItemsLibrary();
+                }
+                else
+                {
+                    MessageBox.Show(text: "You are unable to checkout the current item.",
+                        caption: "Checkout Failed",
+                        buttons: MessageBoxButtons.OK,
+                        icon: MessageBoxIcon.Error);
+                }
             }
-            else
+            catch (Exception exp)
             {
-                MessageBox.Show(text: "You are unable to checkout the current item.", 
-                    caption: "Checkout Failed", 
-                    buttons: MessageBoxButtons.OK, 
-                    icon: MessageBoxIcon.Error);
+                MessageBox.Show(exp.Message, "Patron Checkout Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-             
             
         }
 
