@@ -67,6 +67,8 @@
             this.lblCheckedOutDesc = new System.Windows.Forms.Label();
             this.lblLibraryDesc = new System.Windows.Forms.Label();
             this.lblPatronDesc = new System.Windows.Forms.Label();
+            this.txtBoxDebugOutput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -254,7 +256,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(750, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1095, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -426,11 +428,30 @@
             this.lblPatronDesc.TabIndex = 49;
             this.lblPatronDesc.Text = "- Name - Type -";
             // 
+            // txtBoxDebugOutput
+            // 
+            this.txtBoxDebugOutput.Location = new System.Drawing.Point(727, 70);
+            this.txtBoxDebugOutput.Multiline = true;
+            this.txtBoxDebugOutput.Name = "txtBoxDebugOutput";
+            this.txtBoxDebugOutput.Size = new System.Drawing.Size(356, 343);
+            this.txtBoxDebugOutput.TabIndex = 50;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(727, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 13);
+            this.label1.TabIndex = 51;
+            this.label1.Text = "Debug";
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(750, 467);
+            this.ClientSize = new System.Drawing.Size(1095, 467);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBoxDebugOutput);
             this.Controls.Add(this.lblPatronDesc);
             this.Controls.Add(this.lblLibraryDesc);
             this.Controls.Add(this.lblCheckedOutDesc);
@@ -516,6 +537,8 @@
         private System.Windows.Forms.Label lblCheckedOutDesc;
         private System.Windows.Forms.Label lblLibraryDesc;
         private System.Windows.Forms.Label lblPatronDesc;
+        private System.Windows.Forms.TextBox txtBoxDebugOutput;
+        private System.Windows.Forms.Label label1;
     }
 }
 
