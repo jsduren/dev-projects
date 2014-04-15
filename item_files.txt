@@ -1,29 +1,67 @@
-/*
-THIS COMMENT SECTION WILL BE REMOVED BEFORE PRODUCTION
-
-This is the possible format style, note that if the item is not checked
-out that there is an empty line, so when it is read in it will be a null
-value. If there is a better idea or way please let me know.
-
-*/
 Agile Estimating and Planning
 AdultBook
 Craig Gardner
+0
 3/28/2014
 4/11/2014
-
 One Fish Two Fish Red Fish Blue Fish
 ChildBook
-
-
-
+John Smith
+0
+3/28/2014
+4/11/2014
 The Catcher in The Rye
 Adultbook
-
-
-
+Justin Bieber
+0
+3/28/2014
+4/11/2014
 The Twilight Saga:Breaking Dawn, Part 2
 DVD
 Josh Duren
 3/29/2014
 4/12/2014
+The Outsiders
+VHS
+Austin Barnes
+3/29/2014
+4/12/2014
+**
+Craig
+Gardner
+Adult
+1
+John
+Smith
+Adult
+1
+Justin
+Bieber
+Adult
+1
+Josh
+Duren
+Adult
+1
+Austin
+Barnes
+Adult
+1
+Brad
+Soderman
+Adult
+0
+Ikani
+Samani
+Adult
+0
+Huckleberry
+Finn
+Child
+0
+***
+/*
+** marks end of items section
+*** marks end of partons section
+
+*/

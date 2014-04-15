@@ -26,14 +26,14 @@ public class Patron
 
     //I added the void return type to be able to compile. Change as needed -Brad
     // Completed the virtual class to be able to compile program. -Josh
-    public virtual void checkout()
+    public virtual bool checkout(ref Item current)
     {
         throw new System.NotImplementedException();
     }
 
     //I added the void return type to be able to compile. Change as needed -Brad
     // Completed the virtual class to be able to compile program. -Josh
-    public virtual void checkin()
+    public virtual void checkin(ref Item current)
     {
         throw new System.NotImplementedException();
     }
@@ -42,7 +42,7 @@ public class Patron
 //Child class
 public class Child : Patron
 {
-	private static const int MAX = 3;	
+	private const int MAX = 3;	
 	public Child(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
 	{
 	
@@ -52,7 +52,11 @@ public class Child : Patron
     public override bool checkout(ref Item current) //pass an item as a ref and return a bool 
     {
         //checks the type
+<<<<<<< HEAD
 		if(Item is ChildBook && numberofItems < MAX)//**************************Fix!!!!!!!!!!!!!!!!!!1
+=======
+		if(current is ChildBook || numberofItems == MAX)
+>>>>>>> 687f339d480feff123ced1f07b02e38942dfe56f
 		{
 			current.checkout(this.displayname());
 			++numberofItems;
@@ -65,23 +69,30 @@ public class Child : Patron
 		}
 		else 
 		{
+<<<<<<< HEAD
 			throw new System.ArgumentException("Item is not a child book...", "current");
 			return false;
 		}
 		
+=======
+            current.checkout(this.displayName());
+            ++numberofItems;
+            return true;
+		}	
+>>>>>>> 687f339d480feff123ced1f07b02e38942dfe56f
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();
 		--numberofItems; 
     }
-
 }
 
 //Adult class
 class Adult : Patron
 {
-	private static const int MAX = 6;
+	private const int MAX = 6;
 	public Adult(string _first, string _last, int _numberofItems):base(_first, _last, _numberofItems)
 	{
 	
@@ -98,12 +109,12 @@ class Adult : Patron
 		//if ok call check out of item
 		else 
 		{
-			current.checkout(this.displayname());
+			current.checkout(this.displayName());
 			++numberofItems;
 			return true;
 		}
-		
     }
+
     public override void checkin(ref Item current) //pass by reference item
     {
 		current.checkin();

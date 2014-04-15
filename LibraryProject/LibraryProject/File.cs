@@ -11,11 +11,12 @@ namespace LibraryProject
 {
     static class File
     {
-        public List<Item> itemsList;
-        public List<Patron> patronsList;
+        public static List<Item> itemsList;
+        public static List<Patron> patronsList;
 
+        // Assumed C# will create default constructor and destructor
 
-        public void readFile()
+        public static void readFile()
         {
             string inputstring = null;
             StreamReader data = null;
@@ -55,22 +56,22 @@ namespace LibraryProject
                     // need items constructor
                     if (category == "AdultBook")
                     {
-                        AdultBook temp = new AdultBook(title,checkStatus, checkedOut, dueDate);
+                        AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if(category == "ChildBook")
                     {
-                        ChildBook temp = new ChildBook(title, checkStatus, checkedOut, dueDate);
-                        itemsList.Add(temp);
+                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
+
                     }
                     else if (category == "DVD")
                     {
-                        DVD temp = new DVD(title, checkStatus, checkedOut, dueDate);
+                        DVD temp = new DVD(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
                     else if (category == "VHS")
                     {
-                        VHS temp = new VHS(title, checkStatus, checkedOut, dueDate);
+                        VHS temp = new VHS(title, checkStatus, whoCheckedout, checkedOut, dueDate);
                         itemsList.Add(temp);
                     }
 
@@ -78,24 +79,61 @@ namespace LibraryProject
                     inputstring = data.ReadLine();
 
                 }
-            } while (inputstring != null);
+            } while (inputstring != "**");
+            while (inputstring != "***")
+            {
+                string fname = data.ReadLine();
+                string lname = data.ReadLine();
+                string category = data.ReadLine();
+                int numItems = int.Parse(data.ReadLine());
+
+                if (category == "Adult")
+                {
+                    Adult temp = new Adult(fname, lname, numItems);
+                    patronsList.Add(temp);
+                }
+                else
+                {
+                    Child temp = new Child(fname, lname, numItems);
+                    patronsList.Add(temp);
+                }
+            }
+
         }
 
-        public void saveFile()
+        public static void saveFile()
         {
-            // take each item and patron and save them to a file
+            //Stream myStream;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            // path variable can be replaced with a savedialog
-            foreach(Item i in itemsList)
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"  ;
+            saveFileDialog1.FilterIndex = 2 ;
+            saveFileDialog1.RestoreDirectory = true ;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
+                StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
+                 // Code to write the stream goes here.
+                foreach (Item i in itemsList)
+                {
 
+                }
+                writer.WriteLine("**"); // signals end of items list
+                foreach (Patron i in patronsList)
+                {
+                    string fullname = i.displayName();
+                    string[] splitNames = fullname.Split();
+                    string numItems = i.numberofItems.ToString();
+                    //write first name
+                    writer.WriteLine(splitNames[0]);
+                    // write last name
+                    writer.WriteLine(splitNames[1]);
+                    writer.WriteLine(numItems);
+                 }
+                writer.WriteLine("***"); // signals end of patrons list
+
+                    writer.Close();
             }
-
-            foreach(Patron i in patronsList)
-            {
-
-            }
-
      
 
         }
