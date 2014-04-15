@@ -92,23 +92,23 @@ namespace LibraryProject
 
         private void openFile()
         {
-            itemsInitilizerTest();
-            patronInitilizerTest();
-            /*File.readFile();
+            //itemsInitilizerTest();
+            //patronInitilizerTest();
+            File.readFile();
             items.Clear();
             items = File.itemsList;
             patrons.Clear();
-            patrons = File.patronsList;*/
+            patrons = File.patronsList;
             updatePatrons();
             updateItemsLibrary();
         }
 
         private void closeFile()
         {
-            File.itemsList.Clear();
-            File.itemsList = items;
-            File.patronsList.Clear();
-            File.patronsList = patrons;
+            //File.itemsList.Clear();
+            //File.itemsList = items;
+            //File.patronsList.Clear();
+            //File.patronsList = patrons;
             File.saveFile();
         }
 

@@ -1,31 +1,45 @@
 Agile Estimating and Planning
 AdultBook
 Craig Gardner
-0
-3/28/2014
-4/11/2014
+1
+3/28/2014 12:00:00 AM
+4/11/2014 12:00:00 AM
 One Fish Two Fish Red Fish Blue Fish
 ChildBook
 John Smith
-0
-3/28/2014
-4/11/2014
-The Catcher in The Rye
-Adultbook
-Justin Bieber
-0
-3/28/2014
-4/11/2014
+1
+3/28/2014 12:00:00 AM
+4/11/2014 12:00:00 AM
 The Twilight Saga:Breaking Dawn, Part 2
 DVD
 Josh Duren
-3/29/2014
-4/12/2014
+1
+3/28/2014 12:00:00 AM
+4/12/2014 12:00:00 AM
 The Outsiders
 VHS
 Austin Barnes
-3/29/2014
-4/12/2014
+1
+3/29/2014 12:00:00 AM
+4/12/2014 12:00:00 AM
+Goodnight Moon
+ChildBook
+
+0
+3/28/2104 12:00:00 AM
+4/11/2014 12:00:00 AM
+A Wrinkle in Time
+ChildBook
+
+0
+3/28/2104 12:00:00 AM
+4/11/2014 12:00:00 AM
+Fast and Furious 6
+DVD
+
+0
+3/28/2104 12:00:00 AM
+4/11/2014 12:00:00 AM
 **
 Craig
 Gardner
@@ -60,9 +74,3 @@ Finn
 Child
 0
 ***
-/*
-** marks end of items section
-*** marks end of partons section
-I propose we add
-
-*/

@@ -11,8 +11,8 @@ namespace LibraryProject
 {
     static class File
     {
-        public static List<Item> itemsList;
-        public static List<Patron> patronsList;
+        public static List<Item> itemsList = null;
+        public static List<Patron> patronsList = null;
 
         // Assumed C# will create default constructor and destructor
 
@@ -34,6 +34,7 @@ namespace LibraryProject
                 }
             }
 
+            itemsList = new List<Item>();
             // populate items list
             do
             {
@@ -43,21 +44,24 @@ namespace LibraryProject
                     string title = inputstring;
                     string category = data.ReadLine();
                     string whoCheckedout = data.ReadLine();
-                    int tempInt = int.Parse(data.ReadLine());
-                    bool checkStatus = (tempInt == 1) ? true : false;
+                    string tempInt = data.ReadLine();
+                    bool checkStatus = (tempInt == "1") ? true : false;
                     
                     // read in checkedout date
-                    DateTime checkedOut = DateTime.Parse(data.ReadLine());
+                    string time = data.ReadLine();
+                    DateTime checkedOut = DateTime.Parse(time);
 
                     //read in duedate
-                    DateTime dueDate = DateTime.Parse(data.ReadLine());
+                    time = data.ReadLine();
+                    DateTime dueDate = DateTime.Parse(time);
                    
                     // create a items object and push
                     // need items constructor
                     if (category == "AdultBook")
                     {
-                        AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
-                        itemsList.Add(temp);
+                        
+                       AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
+                       itemsList.Add(temp);
                     }
                     else if(category == "ChildBook")
                     {
@@ -76,29 +80,36 @@ namespace LibraryProject
                         itemsList.Add(temp);
                     }
 
-                    //read in next line to check if at end of items list
-                    inputstring = data.ReadLine();
-
                 }
             } while (inputstring != "**");
-            while (inputstring != "***")
+
+            patronsList = new List<Patron>();
+
+            do
             {
-                string fname = data.ReadLine();
+                inputstring = data.ReadLine();
+                if (inputstring == "***")
+                    break;
+
+                string fname = inputstring;
                 string lname = data.ReadLine();
                 string category = data.ReadLine();
-                int numItems = int.Parse(data.ReadLine());
+                string numItems = data.ReadLine();
 
                 if (category == "Adult")
                 {
-                    Adult temp = new Adult(fname, lname, numItems);
+                    Adult temp = new Adult(fname, lname, int.Parse(numItems));
                     patronsList.Add(temp);
                 }
                 else
                 {
-                    Child temp = new Child(fname, lname, numItems);
+                    Child temp = new Child(fname, lname, int.Parse(numItems));
                     patronsList.Add(temp);
                 }
-            }
+
+            } while (inputstring != "***");
+
+            MessageBox.Show("File Loaded!!");
 
         }
 
@@ -115,9 +126,29 @@ namespace LibraryProject
             {
                 StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
                  // Code to write the stream goes here.
-                foreach (Item i in itemsList)
+                foreach(Item i in itemsList)
                 {
+                    writer.WriteLine(i.title); //write title
+                    string tempCategory;
+                    if (i is AdultBook)
+                        tempCategory = "AdultBook";
+                    else if (i is ChildBook)
+                        tempCategory = "ChildBook";
+                    else if (i is DVD)
+                        tempCategory = "DVD";
+                    else if (i is VHS)
+                        tempCategory = "VHS";
+                    else
+                        throw new FieldAccessException("Category is incorrect");
+                    writer.WriteLine(tempCategory); //write category
 
+                    writer.WriteLine(i.whoCheckedOut); // who checked it out
+                    
+                    int temp = (i.checkedout) ? 1 : 0;
+                    writer.WriteLine(temp);             // checkout boolean writeout
+                    
+                    writer.WriteLine(i.checkDate.ToString());
+                    writer.WriteLine(i.dueDate.ToString());
                 }
                 writer.WriteLine("**"); // signals end of items list
                 foreach (Patron i in patronsList)
@@ -129,11 +160,16 @@ namespace LibraryProject
                     writer.WriteLine(splitNames[0]);
                     // write last name
                     writer.WriteLine(splitNames[1]);
+                    if (i is Adult)
+                        writer.WriteLine("Adult");
+                    else
+                        writer.WriteLine("Child");
                     writer.WriteLine(numItems);
                  }
                 writer.WriteLine("***"); // signals end of patrons list
 
                     writer.Close();
+                    MessageBox.Show("File Saved succesfully!");
             }
      
 

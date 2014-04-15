@@ -10,6 +10,14 @@ public class Item
 	public DateTime checkDate;
     public DateTime dueDate; //I added this so I could compare the dates. -Brad
 
+    public Item()
+    {
+        title = "";
+        whoCheckedOut = "";
+        checkedout = false;
+        checkDate = DateTime.Now;
+        dueDate = DateTime.Now;
+    }
 	public Item(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate)
 	{
 		checkedout = check;
@@ -55,7 +63,7 @@ class ChildBook: Item
 //Adult Book
 class AdultBook: Item
 {
-	private const int MAX = 14; //2 weeks
+	private const int MAX = 14; // 2 weeks
 	public override void checkout(string _who)
 	{
 		whoCheckedOut = _who;
@@ -63,6 +71,7 @@ class AdultBook: Item
 		dueDate = checkDate.AddDays(MAX);
 		checkedout = true;
 	}
+    public AdultBook() : base() { }
 	public AdultBook(string _title, bool check, string _who, DateTime _checkDate, DateTime _dueDate):base(_title, check, _who, _checkDate, _dueDate){}
 
     public override int maxDays()
