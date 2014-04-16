@@ -118,7 +118,7 @@ namespace LibraryProject
             //Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*"  ;
+            saveFileDialog1.Filter = "Text Files | *.txt"; ;
             saveFileDialog1.FilterIndex = 2 ;
             saveFileDialog1.RestoreDirectory = true ;
 
