@@ -67,15 +67,13 @@
             this.lblCheckedOutDesc = new System.Windows.Forms.Label();
             this.lblLibraryDesc = new System.Windows.Forms.Label();
             this.lblPatronDesc = new System.Windows.Forms.Label();
-            this.txtBoxDebugOutput = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblItemStatus
             // 
             this.lblItemStatus.AutoSize = true;
-            this.lblItemStatus.Location = new System.Drawing.Point(77, 195);
+            this.lblItemStatus.Location = new System.Drawing.Point(89, 189);
             this.lblItemStatus.Name = "lblItemStatus";
             this.lblItemStatus.Size = new System.Drawing.Size(40, 13);
             this.lblItemStatus.TabIndex = 29;
@@ -85,7 +83,7 @@
             // lblItemDueDate
             // 
             this.lblItemDueDate.AutoSize = true;
-            this.lblItemDueDate.Location = new System.Drawing.Point(61, 224);
+            this.lblItemDueDate.Location = new System.Drawing.Point(73, 218);
             this.lblItemDueDate.Name = "lblItemDueDate";
             this.lblItemDueDate.Size = new System.Drawing.Size(56, 13);
             this.lblItemDueDate.TabIndex = 28;
@@ -95,7 +93,7 @@
             // lblItemCheckoutLength
             // 
             this.lblItemCheckoutLength.AutoSize = true;
-            this.lblItemCheckoutLength.Location = new System.Drawing.Point(25, 170);
+            this.lblItemCheckoutLength.Location = new System.Drawing.Point(37, 164);
             this.lblItemCheckoutLength.Name = "lblItemCheckoutLength";
             this.lblItemCheckoutLength.Size = new System.Drawing.Size(92, 13);
             this.lblItemCheckoutLength.TabIndex = 27;
@@ -105,7 +103,7 @@
             // lblItemType
             // 
             this.lblItemType.AutoSize = true;
-            this.lblItemType.Location = new System.Drawing.Point(83, 147);
+            this.lblItemType.Location = new System.Drawing.Point(95, 141);
             this.lblItemType.Name = "lblItemType";
             this.lblItemType.Size = new System.Drawing.Size(34, 13);
             this.lblItemType.TabIndex = 26;
@@ -115,7 +113,7 @@
             // lblItemTitle
             // 
             this.lblItemTitle.AutoSize = true;
-            this.lblItemTitle.Location = new System.Drawing.Point(87, 124);
+            this.lblItemTitle.Location = new System.Drawing.Point(99, 118);
             this.lblItemTitle.Name = "lblItemTitle";
             this.lblItemTitle.Size = new System.Drawing.Size(30, 13);
             this.lblItemTitle.TabIndex = 25;
@@ -126,7 +124,7 @@
             // 
             this.lblPatronItemsCheckedOut.AutoSize = true;
             this.lblPatronItemsCheckedOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatronItemsCheckedOut.Location = new System.Drawing.Point(-4, 88);
+            this.lblPatronItemsCheckedOut.Location = new System.Drawing.Point(8, 82);
             this.lblPatronItemsCheckedOut.Name = "lblPatronItemsCheckedOut";
             this.lblPatronItemsCheckedOut.Size = new System.Drawing.Size(121, 13);
             this.lblPatronItemsCheckedOut.TabIndex = 24;
@@ -137,7 +135,7 @@
             // 
             this.lblPatronType.AutoSize = true;
             this.lblPatronType.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatronType.Location = new System.Drawing.Point(83, 62);
+            this.lblPatronType.Location = new System.Drawing.Point(95, 56);
             this.lblPatronType.Name = "lblPatronType";
             this.lblPatronType.Size = new System.Drawing.Size(34, 13);
             this.lblPatronType.TabIndex = 23;
@@ -148,7 +146,7 @@
             // 
             this.lblPatronName.AutoSize = true;
             this.lblPatronName.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPatronName.Location = new System.Drawing.Point(79, 36);
+            this.lblPatronName.Location = new System.Drawing.Point(91, 30);
             this.lblPatronName.Name = "lblPatronName";
             this.lblPatronName.Size = new System.Drawing.Size(38, 13);
             this.lblPatronName.TabIndex = 22;
@@ -256,7 +254,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1095, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(727, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -303,7 +301,7 @@
             // txtBPatronType
             // 
             this.txtBPatronType.Enabled = false;
-            this.txtBPatronType.Location = new System.Drawing.Point(120, 59);
+            this.txtBPatronType.Location = new System.Drawing.Point(132, 53);
             this.txtBPatronType.Name = "txtBPatronType";
             this.txtBPatronType.Size = new System.Drawing.Size(100, 20);
             this.txtBPatronType.TabIndex = 34;
@@ -311,7 +309,7 @@
             // txtBPatronItemsOut
             // 
             this.txtBPatronItemsOut.Enabled = false;
-            this.txtBPatronItemsOut.Location = new System.Drawing.Point(120, 85);
+            this.txtBPatronItemsOut.Location = new System.Drawing.Point(132, 79);
             this.txtBPatronItemsOut.Name = "txtBPatronItemsOut";
             this.txtBPatronItemsOut.Size = new System.Drawing.Size(100, 20);
             this.txtBPatronItemsOut.TabIndex = 35;
@@ -319,7 +317,7 @@
             // txtBPatronName
             // 
             this.txtBPatronName.Enabled = false;
-            this.txtBPatronName.Location = new System.Drawing.Point(120, 33);
+            this.txtBPatronName.Location = new System.Drawing.Point(132, 27);
             this.txtBPatronName.Name = "txtBPatronName";
             this.txtBPatronName.Size = new System.Drawing.Size(100, 20);
             this.txtBPatronName.TabIndex = 36;
@@ -327,7 +325,7 @@
             // txtBItemTitle
             // 
             this.txtBItemTitle.Enabled = false;
-            this.txtBItemTitle.Location = new System.Drawing.Point(120, 121);
+            this.txtBItemTitle.Location = new System.Drawing.Point(132, 115);
             this.txtBItemTitle.Name = "txtBItemTitle";
             this.txtBItemTitle.Size = new System.Drawing.Size(100, 20);
             this.txtBItemTitle.TabIndex = 37;
@@ -335,7 +333,7 @@
             // txtBItemType
             // 
             this.txtBItemType.Enabled = false;
-            this.txtBItemType.Location = new System.Drawing.Point(120, 144);
+            this.txtBItemType.Location = new System.Drawing.Point(132, 138);
             this.txtBItemType.Name = "txtBItemType";
             this.txtBItemType.Size = new System.Drawing.Size(100, 20);
             this.txtBItemType.TabIndex = 38;
@@ -343,7 +341,7 @@
             // txtBItemCheckoutLen
             // 
             this.txtBItemCheckoutLen.Enabled = false;
-            this.txtBItemCheckoutLen.Location = new System.Drawing.Point(120, 167);
+            this.txtBItemCheckoutLen.Location = new System.Drawing.Point(132, 161);
             this.txtBItemCheckoutLen.Name = "txtBItemCheckoutLen";
             this.txtBItemCheckoutLen.Size = new System.Drawing.Size(100, 20);
             this.txtBItemCheckoutLen.TabIndex = 39;
@@ -351,7 +349,7 @@
             // dateDue
             // 
             this.dateDue.Enabled = false;
-            this.dateDue.Location = new System.Drawing.Point(120, 218);
+            this.dateDue.Location = new System.Drawing.Point(132, 212);
             this.dateDue.Name = "dateDue";
             this.dateDue.Size = new System.Drawing.Size(200, 20);
             this.dateDue.TabIndex = 41;
@@ -359,7 +357,7 @@
             // txtBItemStatus
             // 
             this.txtBItemStatus.Enabled = false;
-            this.txtBItemStatus.Location = new System.Drawing.Point(120, 192);
+            this.txtBItemStatus.Location = new System.Drawing.Point(132, 186);
             this.txtBItemStatus.Name = "txtBItemStatus";
             this.txtBItemStatus.Size = new System.Drawing.Size(100, 20);
             this.txtBItemStatus.TabIndex = 42;
@@ -368,7 +366,7 @@
             // 
             this.lblTodayDate.AutoSize = true;
             this.lblTodayDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTodayDate.Location = new System.Drawing.Point(339, 36);
+            this.lblTodayDate.Location = new System.Drawing.Point(351, 30);
             this.lblTodayDate.Name = "lblTodayDate";
             this.lblTodayDate.Size = new System.Drawing.Size(86, 13);
             this.lblTodayDate.TabIndex = 43;
@@ -377,14 +375,14 @@
             // dateToday
             // 
             this.dateToday.Enabled = false;
-            this.dateToday.Location = new System.Drawing.Point(281, 54);
+            this.dateToday.Location = new System.Drawing.Point(293, 48);
             this.dateToday.Name = "dateToday";
             this.dateToday.Size = new System.Drawing.Size(200, 20);
             this.dateToday.TabIndex = 44;
             // 
             // btnAdvDate
             // 
-            this.btnAdvDate.Location = new System.Drawing.Point(333, 80);
+            this.btnAdvDate.Location = new System.Drawing.Point(345, 74);
             this.btnAdvDate.Name = "btnAdvDate";
             this.btnAdvDate.Size = new System.Drawing.Size(88, 23);
             this.btnAdvDate.TabIndex = 45;
@@ -428,30 +426,11 @@
             this.lblPatronDesc.TabIndex = 49;
             this.lblPatronDesc.Text = "- Name - Type -";
             // 
-            // txtBoxDebugOutput
-            // 
-            this.txtBoxDebugOutput.Location = new System.Drawing.Point(727, 70);
-            this.txtBoxDebugOutput.Multiline = true;
-            this.txtBoxDebugOutput.Name = "txtBoxDebugOutput";
-            this.txtBoxDebugOutput.Size = new System.Drawing.Size(356, 343);
-            this.txtBoxDebugOutput.TabIndex = 50;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(727, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 13);
-            this.label1.TabIndex = 51;
-            this.label1.Text = "Debug";
-            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1095, 467);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtBoxDebugOutput);
+            this.ClientSize = new System.Drawing.Size(727, 467);
             this.Controls.Add(this.lblPatronDesc);
             this.Controls.Add(this.lblLibraryDesc);
             this.Controls.Add(this.lblCheckedOutDesc);
@@ -537,8 +516,6 @@
         private System.Windows.Forms.Label lblCheckedOutDesc;
         private System.Windows.Forms.Label lblLibraryDesc;
         private System.Windows.Forms.Label lblPatronDesc;
-        private System.Windows.Forms.TextBox txtBoxDebugOutput;
-        private System.Windows.Forms.Label label1;
     }
 }
 

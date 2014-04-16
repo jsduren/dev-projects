@@ -105,10 +105,10 @@ namespace LibraryProject
 
         private void closeFile()
         {
-            //File.itemsList.Clear();
-            //File.itemsList = items;
-            //File.patronsList.Clear();
-            //File.patronsList = patrons;
+            File.itemsList.Clear();
+            File.itemsList = items;
+            File.patronsList.Clear();
+            File.patronsList = patrons;
             File.saveFile();
         }
 
