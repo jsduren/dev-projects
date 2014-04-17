@@ -32,87 +32,101 @@ namespace LibraryProject
                 {
                     data = new StreamReader(myStream);
                 }
+                else
+                    throw new Exception("streamReader problem");
             }
 
             itemsList = new List<Item>();
             // populate items list
-            do
+            try
             {
-                inputstring = data.ReadLine();
-                if (inputstring != "**")
+                string star = data.ReadLine();
+                if (star != "*")
+                    throw new FileLoadException("No Star found");
+                do
                 {
-                    string title = inputstring;
-                    string category = data.ReadLine();
-                    string whoCheckedout = data.ReadLine();
-                    string tempInt = data.ReadLine();
-                    bool checkStatus = (tempInt == "1") ? true : false;
-                    
-                    // read in checkedout date
-                    string time = data.ReadLine();
-                    DateTime checkedOut = DateTime.Parse(time);
-
-                    //read in duedate
-                    time = data.ReadLine();
-                    DateTime dueDate = DateTime.Parse(time);
-                   
-                    // create a items object and push
-                    // need items constructor
-                    if (category == "AdultBook")
+                    inputstring = data.ReadLine();
+                    if (inputstring != "**")
                     {
-                        
-                       AdultBook temp = new AdultBook(title,checkStatus, whoCheckedout, checkedOut, dueDate);
-                       itemsList.Add(temp);
-                    }
-                    else if(category == "ChildBook")
-                    {
-                        ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout,checkedOut, dueDate);
-                        itemsList.Add(temp);
+                        string title = inputstring;
+                        string category = data.ReadLine();
+                        string whoCheckedout = data.ReadLine();
+                        string tempInt = data.ReadLine();
+                        bool checkStatus = (tempInt == "1") ? true : false;
+
+                        // read in checkedout date
+                        string time = data.ReadLine();
+                        DateTime checkedOut = DateTime.Parse(time);
+
+                        //read in duedate
+                        time = data.ReadLine();
+                        DateTime dueDate = DateTime.Parse(time);
+
+                        // create a items object and push
+                        // need items constructor
+                        if (category == "AdultBook")
+                        {
+
+                            AdultBook temp = new AdultBook(title, checkStatus, whoCheckedout, checkedOut, dueDate);
+                            itemsList.Add(temp);
+                        }
+                        else if (category == "ChildBook")
+                        {
+                            ChildBook temp = new ChildBook(title, checkStatus, whoCheckedout, checkedOut, dueDate);
+                            itemsList.Add(temp);
+
+                        }
+                        else if (category == "DVD")
+                        {
+                            DVD temp = new DVD(title, checkStatus, whoCheckedout, checkedOut, dueDate);
+                            itemsList.Add(temp);
+                        }
+                        else if (category == "VHS")
+                        {
+                            VHS temp = new VHS(title, checkStatus, whoCheckedout, checkedOut, dueDate);
+                            itemsList.Add(temp);
+                        }
+                        else
+                            throw new FileLoadException("invalid file");
 
                     }
-                    else if (category == "DVD")
-                    {
-                        DVD temp = new DVD(title, checkStatus, whoCheckedout, checkedOut, dueDate);
-                        itemsList.Add(temp);
-                    }
-                    else if (category == "VHS")
-                    {
-                        VHS temp = new VHS(title, checkStatus, whoCheckedout, checkedOut, dueDate);
-                        itemsList.Add(temp);
-                    }
-
-                }
-            } while (inputstring != "**");
-
+                } while (inputstring != "**");
+  
             patronsList = new List<Patron>();
 
-            do
+                do
+                {
+                    inputstring = data.ReadLine();
+                    if (inputstring == "***")
+                        break;
+
+                    string fname = inputstring;
+                    string lname = data.ReadLine();
+                    string category = data.ReadLine();
+                    string numItems = data.ReadLine();
+
+                    if (category == "Adult")
+                    {
+                        Adult temp = new Adult(fname, lname, int.Parse(numItems));
+                        patronsList.Add(temp);
+                    }
+                    else
+                    {
+                        Child temp = new Child(fname, lname, int.Parse(numItems));
+                        patronsList.Add(temp);
+                    }
+
+                } while (inputstring != "***");
+
+                myStream.Close();
+                data.Close();
+
+                MessageBox.Show("File Loaded!!");
+            }
+            catch (Exception e)
             {
-                inputstring = data.ReadLine();
-                if (inputstring == "***")
-                    break;
-
-                string fname = inputstring;
-                string lname = data.ReadLine();
-                string category = data.ReadLine();
-                string numItems = data.ReadLine();
-
-                if (category == "Adult")
-                {
-                    Adult temp = new Adult(fname, lname, int.Parse(numItems));
-                    patronsList.Add(temp);
-                }
-                else
-                {
-                    Child temp = new Child(fname, lname, int.Parse(numItems));
-                    patronsList.Add(temp);
-                }
-
-            } while (inputstring != "***");
-
-            myStream.Close();
-            data.Close();
-
-            MessageBox.Show("File Loaded!!");
+                throw new FileLoadException("Unable to Load");
+            }
 
         }
 
