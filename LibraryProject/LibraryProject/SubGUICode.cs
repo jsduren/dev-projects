@@ -90,20 +90,29 @@ namespace LibraryProject
             }
         }
 
+        //calls the readFile method in the File class and updates the patrons and the items in the library and enables the advance date button
         private void openFile()
         {
             //itemsInitilizerTest();
             //patronInitilizerTest();
-            File.readFile();
-            items.Clear();
-            items = File.itemsList;
-            patrons.Clear();
-            patrons = File.patronsList;
-            updatePatrons();
-            updateItemsLibrary();
-            btnAdvDate.Enabled = true;
+            try
+            {
+                File.readFile();
+                items.Clear();
+                items = File.itemsList;
+                patrons.Clear();
+                patrons = File.patronsList;
+                updatePatrons();
+                updateItemsLibrary();
+                btnAdvDate.Enabled = true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Incorrect File Format. Try Again.");
+            }
         }
 
+        //calls the saveFile method in the File class and calls the clearGUI method and disables the advance date button
         private void closeFile()
         {
             //File.itemsList.Clear();
@@ -116,6 +125,7 @@ namespace LibraryProject
            
         }
 
+        //clears the items from the GUI after it has been saved.
         private void clearGUI()
         {
             lstItemsOverdue.Items.Clear();
@@ -183,6 +193,7 @@ namespace LibraryProject
            }
         }
 
+        //update the list of patrons 
         private void updatePatrons()
         {
             lstPatrons.Items.Clear();
@@ -199,6 +210,7 @@ namespace LibraryProject
             }
         }
 
+        //updates the list of Items checked out.
         private void updateItemsCheckOut()
         {
             lstItemsCheckedOut.Items.Clear();
@@ -217,6 +229,7 @@ namespace LibraryProject
             }
         }
 
+        //update the Items in the Library
         private void updateItemsLibrary()
         {
             lstItemsLibrary.Items.Clear();
@@ -233,6 +246,7 @@ namespace LibraryProject
             }
         }
 
+        //updates the Items that are in the Overdue list
         private void updateOverdueItems(int daysOfYear)
         {
             
@@ -246,6 +260,7 @@ namespace LibraryProject
             }
         }
 
+        //determines the listbox that has been selected.
         private void SelectedIndexChanged(ListBox lstBox){
             var listName = lstBox.Name.ToString();
 
@@ -260,6 +275,7 @@ namespace LibraryProject
             }
         }
 
+        //sets the index to the selected patron
         private void patronSelected(ListBox lstBox)
         {
             curPatronIndex = ListBoxIndexSelected(lstBox);
@@ -296,11 +312,13 @@ namespace LibraryProject
             updateItemInfo(checkedOut[curItemIndex]);
         }
 
+        //updates the number of items in the numberItems textbox
         private void updateNumberPatronItems()
         {
             txtBPatronItemsOut.Text = patrons[curPatronIndex].numberofItems.ToString();
         }
 
+        //when the checkout button gets clicked
         private void btnCheckOutClicked()
         {
             try
@@ -328,6 +346,7 @@ namespace LibraryProject
             
         }
 
+        //when the button to check in is clicked
         private void btnCheckInClicked()
         {
             checkedOut[curItemIndex].checkin();
