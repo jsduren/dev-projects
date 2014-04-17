@@ -101,15 +101,34 @@ namespace LibraryProject
             patrons = File.patronsList;
             updatePatrons();
             updateItemsLibrary();
+            btnAdvDate.Enabled = true;
         }
 
         private void closeFile()
         {
-            File.itemsList.Clear();
+            //File.itemsList.Clear();
             File.itemsList = items;
-            File.patronsList.Clear();
+            //File.patronsList.Clear();
             File.patronsList = patrons;
             File.saveFile();
+            clearGUI();
+            btnAdvDate.Enabled = false;
+           
+        }
+
+        private void clearGUI()
+        {
+            lstItemsOverdue.Items.Clear();
+            lstItemsCheckedOut.Items.Clear();
+            lstPatrons.Items.Clear();
+            lstItemsLibrary.Items.Clear();
+            txtBItemCheckoutLen.Clear();
+            txtBItemStatus.Clear();
+            txtBItemTitle.Clear();
+            txtBItemType.Clear();
+            txtBPatronItemsOut.Clear();
+            txtBPatronName.Clear();
+            txtBPatronType.Clear();
         }
 
         //displays the selected item's information in the text boxes

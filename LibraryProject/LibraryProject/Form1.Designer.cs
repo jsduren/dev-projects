@@ -327,7 +327,7 @@
             this.txtBItemTitle.Enabled = false;
             this.txtBItemTitle.Location = new System.Drawing.Point(132, 115);
             this.txtBItemTitle.Name = "txtBItemTitle";
-            this.txtBItemTitle.Size = new System.Drawing.Size(100, 20);
+            this.txtBItemTitle.Size = new System.Drawing.Size(198, 20);
             this.txtBItemTitle.TabIndex = 37;
             // 
             // txtBItemType
