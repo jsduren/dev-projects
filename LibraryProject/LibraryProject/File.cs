@@ -118,13 +118,12 @@ namespace LibraryProject
 
                 } while (inputstring != "***");
 
-                myStream.Close();
-                data.Close();
-
                 MessageBox.Show("File Loaded!!");
             }
             catch (Exception e)
             {
+                myStream.Close();
+                data.Close();
                 throw new FileLoadException("Unable to Load");
             }
 
