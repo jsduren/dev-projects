@@ -1,4 +1,6 @@
-﻿using System;
+﻿//Written by: Brad Soderman, Josh Duren
+
+using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -359,6 +361,7 @@ namespace LibraryProject
             updateOverdueItems(dateToday.Value.DayOfYear);
         }
 
+        //updates a specific item in the Library
         private void updateItemInLibrary(Item inputItem)
         {
             for (int i = 0; i < items.Count; i++)

@@ -1,4 +1,7 @@
-﻿using System;
+﻿//Written by: Brad Soderman, Josh Duren
+//GUI was designed by Brad Soderman
+
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,16 +24,19 @@ namespace LibraryProject
             InitializeComponent();
         }
 
+        //Checkout Button Listener
         private void btnCheckOut_Click(object sender, EventArgs e)
         {
             btnCheckOutClicked();
         }
 
+        //Checkin Button Listener
         private void btnCheckIn_Click(object sender, EventArgs e)
         {
             btnCheckInClicked();
         }
 
+        //Exit toolstrip Listener
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dialogResult = MessageBox.Show("Are you sure you want to exit the program?", "Exit Program", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -41,16 +47,19 @@ namespace LibraryProject
             }
         }
 
+        //About toolstrip Listener
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Library Project\nCS 2450\n\nBrad Soderman\nAustin Barnes\nIkani Samani\nJosh Duren");
         }
 
+        //Open toolstrip Listener
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
             openFile();
         }
 
+        //Save toolstrip Listener
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             closeFile();
@@ -80,6 +89,7 @@ namespace LibraryProject
             SelectedIndexChanged(lstItemsCheckedOut);
         }
 
+        //Listener for when the Form is Loaded
         private void LibraryForm_Load(object sender, EventArgs e)
         {
             curDateTime = dateToday.Value;
