@@ -187,14 +187,14 @@
             this.lstItemsLibrary.FormattingEnabled = true;
             this.lstItemsLibrary.Location = new System.Drawing.Point(528, 240);
             this.lstItemsLibrary.Name = "lstItemsLibrary";
-            this.lstItemsLibrary.Size = new System.Drawing.Size(192, 173);
+            this.lstItemsLibrary.Size = new System.Drawing.Size(317, 173);
             this.lstItemsLibrary.TabIndex = 17;
             this.lstItemsLibrary.SelectedIndexChanged += new System.EventHandler(this.lstItemsLibrary_SelectedIndexChanged);
             // 
             // lstPatrons
             // 
             this.lstPatrons.FormattingEnabled = true;
-            this.lstPatrons.Location = new System.Drawing.Point(528, 70);
+            this.lstPatrons.Location = new System.Drawing.Point(594, 74);
             this.lstPatrons.Name = "lstPatrons";
             this.lstPatrons.Size = new System.Drawing.Size(192, 121);
             this.lstPatrons.TabIndex = 16;
@@ -244,7 +244,7 @@
             this.lstItemsCheckedOut.FormattingEnabled = true;
             this.lstItemsCheckedOut.Location = new System.Drawing.Point(202, 305);
             this.lstItemsCheckedOut.Name = "lstItemsCheckedOut";
-            this.lstItemsCheckedOut.Size = new System.Drawing.Size(163, 108);
+            this.lstItemsCheckedOut.Size = new System.Drawing.Size(219, 108);
             this.lstItemsCheckedOut.TabIndex = 18;
             this.lstItemsCheckedOut.SelectedIndexChanged += new System.EventHandler(this.lstItemsCheckedOut_SelectedIndexChanged);
             // 
@@ -254,7 +254,7 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(727, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(884, 24);
             this.menuStrip1.TabIndex = 15;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -262,7 +262,7 @@
             // 
             this.lblListOfPatrons.AutoSize = true;
             this.lblListOfPatrons.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfPatrons.Location = new System.Drawing.Point(578, 36);
+            this.lblListOfPatrons.Location = new System.Drawing.Point(640, 41);
             this.lblListOfPatrons.Name = "lblListOfPatrons";
             this.lblListOfPatrons.Size = new System.Drawing.Size(89, 13);
             this.lblListOfPatrons.TabIndex = 30;
@@ -272,7 +272,7 @@
             // 
             this.lblListOfItems.AutoSize = true;
             this.lblListOfItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfItems.Location = new System.Drawing.Point(591, 208);
+            this.lblListOfItems.Location = new System.Drawing.Point(653, 211);
             this.lblListOfItems.Name = "lblListOfItems";
             this.lblListOfItems.Size = new System.Drawing.Size(76, 13);
             this.lblListOfItems.TabIndex = 31;
@@ -292,7 +292,7 @@
             // 
             this.lblListOfCurrentlyCheckedOut.AutoSize = true;
             this.lblListOfCurrentlyCheckedOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfCurrentlyCheckedOut.Location = new System.Drawing.Point(199, 273);
+            this.lblListOfCurrentlyCheckedOut.Location = new System.Drawing.Point(231, 273);
             this.lblListOfCurrentlyCheckedOut.Name = "lblListOfCurrentlyCheckedOut";
             this.lblListOfCurrentlyCheckedOut.Size = new System.Drawing.Size(169, 13);
             this.lblListOfCurrentlyCheckedOut.TabIndex = 33;
@@ -366,7 +366,7 @@
             // 
             this.lblTodayDate.AutoSize = true;
             this.lblTodayDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTodayDate.Location = new System.Drawing.Point(351, 30);
+            this.lblTodayDate.Location = new System.Drawing.Point(384, 30);
             this.lblTodayDate.Name = "lblTodayDate";
             this.lblTodayDate.Size = new System.Drawing.Size(86, 13);
             this.lblTodayDate.TabIndex = 43;
@@ -375,14 +375,14 @@
             // dateToday
             // 
             this.dateToday.Enabled = false;
-            this.dateToday.Location = new System.Drawing.Point(293, 48);
+            this.dateToday.Location = new System.Drawing.Point(328, 47);
             this.dateToday.Name = "dateToday";
             this.dateToday.Size = new System.Drawing.Size(200, 20);
             this.dateToday.TabIndex = 44;
             // 
             // btnAdvDate
             // 
-            this.btnAdvDate.Location = new System.Drawing.Point(345, 74);
+            this.btnAdvDate.Location = new System.Drawing.Point(382, 74);
             this.btnAdvDate.Name = "btnAdvDate";
             this.btnAdvDate.Size = new System.Drawing.Size(88, 23);
             this.btnAdvDate.TabIndex = 45;
@@ -402,7 +402,7 @@
             // lblCheckedOutDesc
             // 
             this.lblCheckedOutDesc.AutoSize = true;
-            this.lblCheckedOutDesc.Location = new System.Drawing.Point(236, 289);
+            this.lblCheckedOutDesc.Location = new System.Drawing.Point(265, 289);
             this.lblCheckedOutDesc.Name = "lblCheckedOutDesc";
             this.lblCheckedOutDesc.Size = new System.Drawing.Size(94, 13);
             this.lblCheckedOutDesc.TabIndex = 47;
@@ -411,7 +411,7 @@
             // lblLibraryDesc
             // 
             this.lblLibraryDesc.AutoSize = true;
-            this.lblLibraryDesc.Location = new System.Drawing.Point(549, 224);
+            this.lblLibraryDesc.Location = new System.Drawing.Point(622, 224);
             this.lblLibraryDesc.Name = "lblLibraryDesc";
             this.lblLibraryDesc.Size = new System.Drawing.Size(144, 13);
             this.lblLibraryDesc.TabIndex = 48;
@@ -420,7 +420,7 @@
             // lblPatronDesc
             // 
             this.lblPatronDesc.AutoSize = true;
-            this.lblPatronDesc.Location = new System.Drawing.Point(578, 54);
+            this.lblPatronDesc.Location = new System.Drawing.Point(640, 54);
             this.lblPatronDesc.Name = "lblPatronDesc";
             this.lblPatronDesc.Size = new System.Drawing.Size(80, 13);
             this.lblPatronDesc.TabIndex = 49;
@@ -430,7 +430,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(727, 467);
+            this.ClientSize = new System.Drawing.Size(884, 467);
             this.Controls.Add(this.lblPatronDesc);
             this.Controls.Add(this.lblLibraryDesc);
             this.Controls.Add(this.lblCheckedOutDesc);
