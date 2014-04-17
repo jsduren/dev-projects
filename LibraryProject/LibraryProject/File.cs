@@ -109,6 +109,9 @@ namespace LibraryProject
 
             } while (inputstring != "***");
 
+            myStream.Close();
+            data.Close();
+
             MessageBox.Show("File Loaded!!");
 
         }
