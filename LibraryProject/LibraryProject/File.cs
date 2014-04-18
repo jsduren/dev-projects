@@ -141,6 +141,7 @@ namespace LibraryProject
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 StreamWriter writer = new StreamWriter(saveFileDialog1.FileName);
+                writer.WriteLine("*");
                  // Code to write the stream goes here.
                 foreach(Item i in itemsList)
                 {

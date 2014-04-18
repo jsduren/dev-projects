@@ -66,7 +66,7 @@ public class Child : Patron
         }
         else
         {
-            throw new System.ArgumentException("Item is not a child book...", "current");
+            throw new System.ArgumentException("Item is not a child book...");
             return false;
         }
         return false;
@@ -93,7 +93,7 @@ class Adult : Patron
         //checks the type
         if (numberofItems == MAX)
         {
-            throw new System.ArgumentException("Patron has max # of checked out items...", "current");
+            throw new System.ArgumentException("Patron has max # of checked out items...");
             return false;
         }
         //if ok call check out of item
