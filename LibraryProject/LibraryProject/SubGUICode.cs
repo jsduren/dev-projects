@@ -187,13 +187,17 @@ namespace LibraryProject
 
            if (inputItem.checkedout)
            {
+               dateDue.Visible = true;
+               lblItemDueDate.Visible = true;
                dateDue.Value = inputItem.dueDate;
            }
            else
            {
-               DateTime tempdate = dateToday.Value;
-               tempdate.AddDays(inputItem.maxDays());
-               dateDue.Value = tempdate;
+               //DateTime tempdate = dateToday.Value;
+               //tempdate.AddDays(inputItem.maxDays());
+               //dateDue.Value = tempdate;
+               dateDue.Visible = false;
+               lblItemDueDate.Visible = false;
            }
         }
 
@@ -284,6 +288,7 @@ namespace LibraryProject
         private void patronSelected(ListBox lstBox)
         {
             curPatronIndex = ListBoxIndexSelected(lstBox);
+            //lblListOfCurrentlyCheckedOut.Text = "Items Currently Checked Out by " + patrons[curPatronIndex].displayName();
             updatePatronInfo();
             updateItemsCheckOut();
             updateOverdueItems(dateToday.Value.DayOfYear);

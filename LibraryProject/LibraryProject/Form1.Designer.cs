@@ -177,6 +177,7 @@
             // 
             this.lstItemsOverdue.Enabled = false;
             this.lstItemsOverdue.FormattingEnabled = true;
+            this.lstItemsOverdue.HorizontalScrollbar = true;
             this.lstItemsOverdue.Location = new System.Drawing.Point(28, 305);
             this.lstItemsOverdue.Name = "lstItemsOverdue";
             this.lstItemsOverdue.Size = new System.Drawing.Size(215, 108);
@@ -243,6 +244,7 @@
             // lstItemsCheckedOut
             // 
             this.lstItemsCheckedOut.FormattingEnabled = true;
+            this.lstItemsCheckedOut.HorizontalScrollbar = true;
             this.lstItemsCheckedOut.Location = new System.Drawing.Point(268, 305);
             this.lstItemsCheckedOut.Name = "lstItemsCheckedOut";
             this.lstItemsCheckedOut.Size = new System.Drawing.Size(219, 108);
@@ -407,7 +409,7 @@
             this.lblCheckedOutDesc.Name = "lblCheckedOutDesc";
             this.lblCheckedOutDesc.Size = new System.Drawing.Size(94, 13);
             this.lblCheckedOutDesc.TabIndex = 47;
-            this.lblCheckedOutDesc.Text = "- Title - Due Date -";
+            this.lblCheckedOutDesc.Text = "- Due Date - Title -";
             // 
             // lblLibraryDesc
             // 
