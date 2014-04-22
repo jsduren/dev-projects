@@ -95,6 +95,8 @@ namespace LibraryProject
             curDateTime = dateToday.Value;
             btnCheckIn.Enabled = false;
             btnCheckOut.Enabled = false;
+            dateDue.Visible = false;
+            lblItemDueDate.Visible = false;
         }
 
     }

@@ -67,6 +67,7 @@
             this.lblCheckedOutDesc = new System.Windows.Forms.Label();
             this.lblLibraryDesc = new System.Windows.Forms.Label();
             this.lblPatronDesc = new System.Windows.Forms.Label();
+            this.lblPatronNameCheckedOutItems = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -295,7 +296,7 @@
             // 
             this.lblListOfCurrentlyCheckedOut.AutoSize = true;
             this.lblListOfCurrentlyCheckedOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfCurrentlyCheckedOut.Location = new System.Drawing.Point(286, 273);
+            this.lblListOfCurrentlyCheckedOut.Location = new System.Drawing.Point(291, 251);
             this.lblListOfCurrentlyCheckedOut.Name = "lblListOfCurrentlyCheckedOut";
             this.lblListOfCurrentlyCheckedOut.Size = new System.Drawing.Size(169, 13);
             this.lblListOfCurrentlyCheckedOut.TabIndex = 33;
@@ -429,11 +430,22 @@
             this.lblPatronDesc.TabIndex = 49;
             this.lblPatronDesc.Text = "- Name - Type -";
             // 
+            // lblPatronNameCheckedOutItems
+            // 
+            this.lblPatronNameCheckedOutItems.AutoSize = true;
+            this.lblPatronNameCheckedOutItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPatronNameCheckedOutItems.Location = new System.Drawing.Point(325, 273);
+            this.lblPatronNameCheckedOutItems.Name = "lblPatronNameCheckedOutItems";
+            this.lblPatronNameCheckedOutItems.Size = new System.Drawing.Size(25, 13);
+            this.lblPatronNameCheckedOutItems.TabIndex = 50;
+            this.lblPatronNameCheckedOutItems.Text = "By:";
+            // 
             // LibraryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1005, 467);
+            this.Controls.Add(this.lblPatronNameCheckedOutItems);
             this.Controls.Add(this.lblPatronDesc);
             this.Controls.Add(this.lblLibraryDesc);
             this.Controls.Add(this.lblCheckedOutDesc);
@@ -519,6 +531,7 @@
         private System.Windows.Forms.Label lblCheckedOutDesc;
         private System.Windows.Forms.Label lblLibraryDesc;
         private System.Windows.Forms.Label lblPatronDesc;
+        private System.Windows.Forms.Label lblPatronNameCheckedOutItems;
     }
 }
 

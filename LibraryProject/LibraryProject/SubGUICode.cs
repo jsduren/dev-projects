@@ -289,6 +289,7 @@ namespace LibraryProject
         {
             curPatronIndex = ListBoxIndexSelected(lstBox);
             //lblListOfCurrentlyCheckedOut.Text = "Items Currently Checked Out by " + patrons[curPatronIndex].displayName();
+            lblPatronNameCheckedOutItems.Text = "By: " + patrons[curPatronIndex].displayName();
             updatePatronInfo();
             updateItemsCheckOut();
             updateOverdueItems(dateToday.Value.DayOfYear);
