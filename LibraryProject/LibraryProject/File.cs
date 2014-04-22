@@ -126,8 +126,11 @@ namespace LibraryProject
                 data.Close();
                 throw new FileLoadException("Unable to Load");
             }
-
-        }
+            finally 
+            {
+                myStream.Close();
+                data.Close(); 
+            }
 
         public static void saveFile()
         {
