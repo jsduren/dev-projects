@@ -185,6 +185,7 @@
             // lstItemsLibrary
             // 
             this.lstItemsLibrary.FormattingEnabled = true;
+            this.lstItemsLibrary.HorizontalScrollbar = true;
             this.lstItemsLibrary.Location = new System.Drawing.Point(643, 240);
             this.lstItemsLibrary.Name = "lstItemsLibrary";
             this.lstItemsLibrary.Size = new System.Drawing.Size(317, 173);
@@ -411,11 +412,11 @@
             // lblLibraryDesc
             // 
             this.lblLibraryDesc.AutoSize = true;
-            this.lblLibraryDesc.Location = new System.Drawing.Point(735, 224);
+            this.lblLibraryDesc.Location = new System.Drawing.Point(640, 224);
             this.lblLibraryDesc.Name = "lblLibraryDesc";
-            this.lblLibraryDesc.Size = new System.Drawing.Size(144, 13);
+            this.lblLibraryDesc.Size = new System.Drawing.Size(170, 13);
             this.lblLibraryDesc.TabIndex = 48;
-            this.lblLibraryDesc.Text = "- Checked Out - Title - Type -";
+            this.lblLibraryDesc.Text = "Out - - - - - Type - - - - - - - - - - - Title";
             // 
             // lblPatronDesc
             // 

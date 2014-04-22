@@ -224,7 +224,7 @@ namespace LibraryProject
                 if (x.checkedout && x.whoCheckedOut == patrons[curPatronIndex].displayName())
                 {
                     checkedOut.Add(x);
-                    lstItemsCheckedOut.Items.Add(x.title + "\t" + x.dueDate);
+                    lstItemsCheckedOut.Items.Add(x.dueDate.ToString("d") + "\t" + x.title);
                 }
             }
             if (checkedOut.Count == 0)
@@ -241,11 +241,12 @@ namespace LibraryProject
             {
                 if (x.checkedout)
                 {
-                    lstItemsLibrary.Items.Add("X\t" + x.title + "\t" + x.GetType());
+                    lstItemsLibrary.Items.Add("X\t" + x.GetType().ToString().Substring(15) + "         \t" + x.title);
+                    
                 }
                 else
                 {
-                    lstItemsLibrary.Items.Add(" \t" + x.title + "\t" + x.GetType());
+                    lstItemsLibrary.Items.Add(" \t" + x.GetType().ToString().Substring(15) + "         \t" + x.title);
                 }
             }
         }
