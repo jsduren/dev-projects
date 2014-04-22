@@ -24,7 +24,7 @@ namespace LibraryProject
 
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
             openFileDialog1.InitialDirectory = "c://";
-            openFileDialog1.Filter = "text files(*.txt)|*txt";
+            openFileDialog1.Filter = "bin files(*.bin)|*bin";
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -122,9 +122,12 @@ namespace LibraryProject
             }
             catch (Exception e)
             {
-                myStream.Close();
                 data.Close();
                 throw new FileLoadException("Unable to Load");
+            }
+            finally
+            {
+                myStream.Close();
             }
 
         }
@@ -134,7 +137,7 @@ namespace LibraryProject
             //Stream myStream;
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-            saveFileDialog1.Filter = "Text Files | *.txt"; ;
+            saveFileDialog1.Filter = "Bin Files | *.bin"; 
             saveFileDialog1.FilterIndex = 2 ;
             saveFileDialog1.RestoreDirectory = true ;
 
@@ -184,6 +187,7 @@ namespace LibraryProject
                     writer.WriteLine(numItems);
                  }
                 writer.WriteLine("***"); // signals end of patrons list
+
 
                     writer.Close();
                     MessageBox.Show("File Saved succesfully!");
