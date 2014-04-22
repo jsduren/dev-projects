@@ -266,7 +266,7 @@
             // 
             this.lblListOfPatrons.AutoSize = true;
             this.lblListOfPatrons.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblListOfPatrons.Location = new System.Drawing.Point(687, 40);
+            this.lblListOfPatrons.Location = new System.Drawing.Point(702, 34);
             this.lblListOfPatrons.Name = "lblListOfPatrons";
             this.lblListOfPatrons.Size = new System.Drawing.Size(89, 13);
             this.lblListOfPatrons.TabIndex = 30;
@@ -397,20 +397,20 @@
             // lblOverdueDescription
             // 
             this.lblOverdueDescription.AutoSize = true;
-            this.lblOverdueDescription.Location = new System.Drawing.Point(73, 289);
+            this.lblOverdueDescription.Location = new System.Drawing.Point(59, 289);
             this.lblOverdueDescription.Name = "lblOverdueDescription";
-            this.lblOverdueDescription.Size = new System.Drawing.Size(116, 13);
+            this.lblOverdueDescription.Size = new System.Drawing.Size(146, 13);
             this.lblOverdueDescription.TabIndex = 46;
-            this.lblOverdueDescription.Text = "- Days Overdue - Title -";
+            this.lblOverdueDescription.Text = "- Days Overdue - - - - - - Title -";
             // 
             // lblCheckedOutDesc
             // 
             this.lblCheckedOutDesc.AutoSize = true;
-            this.lblCheckedOutDesc.Location = new System.Drawing.Point(325, 289);
+            this.lblCheckedOutDesc.Location = new System.Drawing.Point(314, 289);
             this.lblCheckedOutDesc.Name = "lblCheckedOutDesc";
-            this.lblCheckedOutDesc.Size = new System.Drawing.Size(94, 13);
+            this.lblCheckedOutDesc.Size = new System.Drawing.Size(124, 13);
             this.lblCheckedOutDesc.TabIndex = 47;
-            this.lblCheckedOutDesc.Text = "- Due Date - Title -";
+            this.lblCheckedOutDesc.Text = "- Due Date - - - - - - Title -";
             // 
             // lblLibraryDesc
             // 
@@ -424,11 +424,11 @@
             // lblPatronDesc
             // 
             this.lblPatronDesc.AutoSize = true;
-            this.lblPatronDesc.Location = new System.Drawing.Point(696, 53);
+            this.lblPatronDesc.Location = new System.Drawing.Point(687, 53);
             this.lblPatronDesc.Name = "lblPatronDesc";
-            this.lblPatronDesc.Size = new System.Drawing.Size(80, 13);
+            this.lblPatronDesc.Size = new System.Drawing.Size(104, 13);
             this.lblPatronDesc.TabIndex = 49;
-            this.lblPatronDesc.Text = "- Name - Type -";
+            this.lblPatronDesc.Text = "- Name - - - - - Type -";
             // 
             // lblPatronNameCheckedOutItems
             // 
