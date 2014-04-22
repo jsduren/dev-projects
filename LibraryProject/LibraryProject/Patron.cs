@@ -64,6 +64,7 @@ namespace LibraryProject
             //if ok call check out of item
             else if (numberofItems == MAX)
             {
+                throw new System.ArgumentException("Child has reached their limit of books.");
                 return false;
             }
             else
@@ -73,6 +74,7 @@ namespace LibraryProject
             }
             return false;
         }
+
         public override void checkin(ref Item current) //pass by reference item
         {
             current.checkin();
