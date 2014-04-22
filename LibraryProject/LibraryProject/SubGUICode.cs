@@ -124,6 +124,8 @@ namespace LibraryProject
             File.saveFile();
             clearGUI();
             btnAdvDate.Enabled = false;
+            btnCheckIn.Enabled = false;
+            btnCheckOut.Enabled = false;
            
         }
 
